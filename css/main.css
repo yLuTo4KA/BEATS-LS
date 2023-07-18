@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Play:wght@400;700&display=swap");
+body {
+  font-family: "Play", sans-serif;
+  color: #292929;
+  font-size: 16px;
+  line-height: 1.4; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-size: inherit;
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+ul {
+  padding: 0;
+  margin: 0; }
+  ul li {
+    list-style: none;
+    text-decoration: none; }
+
+.container {
+  width: 940px;
+  margin: 0 auto; }
+
+.btn {
+  padding: 18px 41px;
+  color: #fff;
+  background: #E01F3D;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 100px;
+  transition: background .4s, color .4s; }
+  .btn:hover {
+    background: #292929;
+    color: #fff; }
+
+.hero {
+  background: #F5F5F5; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  padding: 25px 0 25px 0; }
+  .header .logo {
+    margin-right: -30px; }
+  .header .menu {
+    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 400; }
+    .header .menu__list {
+      display: flex; }
+    .header .menu__item {
+      margin-right: 27px;
+      transition: color .2s, text-decoration .2s; }
+      .header .menu__item:last-child {
+        margin-right: 0; }
+      .header .menu__item:hover {
+        color: #E01F3D;
+        text-decoration: underline; }
+  .header .contacts {
+    margin-right: 25px; }
+    .header .contacts__phone {
+      transition: color .2s, text-decoration .2s;
+      position: relative; }
+      .header .contacts__phone:before {
+        content: url(../img/phone.png);
+        position: absolute;
+        left: -22px; }
+    .header .contacts__phone:hover {
+      color: #E01F3D;
+      text-decoration: underline; }
+
+.main {
+  padding-top: 62px;
+  background: url(../img/headphones_white.png) top 20px right 20px no-repeat; }
+  .main__text-section {
+    width: 35%;
+    margin-bottom: 80px; }
+  .main__title {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 15px; }
+  .main__desc {
+    font-size: 21px;
+    font-family: "Alegreya Sans", sans-serif;
+    margin-bottom: 50px; }
+  .main__specification-section {
+    width: 55%; }
+  .main__specification-list {
+    display: flex;
+    justify-content: space-between; }
+  .main__specification-item {
+    display: flex;
+    margin-right: 25px;
+    margin-bottom: 60px; }
+  .main__spicification-icon {
+    margin-right: 10px; }
