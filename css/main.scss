@@ -16,12 +16,28 @@ body{
     color: $main-text-color;
     font-size: 16px;
     line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    overflow: hidden;
+    min-width: 1100px;
 }
 h1, h2, h3, h4, h5, h6{
     font-weight: normal;
     font-size: inherit;
     margin: 0;
     padding: 0;
+}
+p{
+    margin: 0;
+}
+button{
+    border: none;
+    background: transparent;
 }
 a{
     text-decoration: none;
@@ -76,10 +92,39 @@ ul{
 //         position: relative;
 //     }
 // }
-
+.section{
+    margin-bottom: 100px;
+    &__info{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 60px;
+        align-items: center;
+    }
+    &__title{
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.1;
+        text-transform: uppercase;
+        text-align: center;
+        width: 65%;
+        margin-bottom: 20px;
+        
+    }
+    &__desc{
+        color: $desc-text-color;
+        text-align: center;
+        width: 55%;
+    }
+}
 
 .hero{
     background: $gray;
+    &__container{
+            display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 645px;
+    }
 }
 .header{
     display: flex;
@@ -163,5 +208,81 @@ ul{
     }
     &__spicification-icon{
         margin-right: 10px;
+    }
+}
+
+.features{
+    display: flex;
+    justify-content: space-between;
+    &__item{
+        
+    }
+    .feature{
+        padding: 0 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        &__icon{
+            min-height: 128px;
+            margin-bottom: 20px;
+            &--sphere{
+                background: #F2F5F4;
+                width: 128px;
+                height: 128px;
+                border-radius: 100%;
+                @each $featureItem in (battery, sound, timer){
+                    &--#{$featureItem}{
+                        background: #F2F5F4 url('../img/features/#{$featureItem}.png') center center no-repeat;
+                        
+                    }
+                }
+            }
+        }
+        &__text{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100px;
+        }
+        &__title{
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        &__desc{
+            color: $desc-text-color;
+            width: 217px;
+        }
+    }
+}
+.dashed{
+    width: 24px;
+    height: 24px;
+    background: #F2F5F4;
+    border-radius: 100%;
+    position: absolute;
+    right: -25px;
+    top: 55px;
+    &:before{
+        content: '';
+        width: 16px;
+        height: 16px;
+        background: #F2F5F4;
+        border-radius: 100%;
+        position: absolute;
+        left: -25px;
+        top: 5px;
+    }
+    &:after{
+        content: '';
+        width: 16px;
+        height: 16px;
+        background: #F2F5F4;
+        border-radius: 100%;
+        position: absolute;
+        right: -25px;
+        top: 5px;
     }
 }
