@@ -1,0 +1,22 @@
+.hero {
+    position: relative;
+    
+    &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 645px;
+        position: relative;
+        &::before{
+            content: '';
+            width: 46.32px;
+            height: 10.38px;
+            background: #C4C4C4;
+            transform: rotate(-45deg);
+            position: absolute;
+            bottom: -4px;
+            right: 45px;
+        }
+    }
+    
+}

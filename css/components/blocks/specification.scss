@@ -1,0 +1,13 @@
+.specification {
+    display: flex;
+    
+    &-icon{
+        width: 41px;
+        height: 41px;
+        margin-right: 10px;
+    }
+    &-text{
+        width: 114px;
+    }
+    
+}

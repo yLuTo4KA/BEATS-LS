@@ -1,0 +1,95 @@
+.reviews {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    &::before{
+        content: "";
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: #868686;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .review {
+        display: flex;
+        background: #F8FAF9;
+        padding: 42px;
+        margin-bottom: 15px;
+        position: relative;
+        &::after{
+            content: '';
+            width: 83px;
+            height: 83px;
+            border-radius: 50%;
+            background-color: #fff;
+            position: absolute;
+            top: -60px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
+
+        &__photo {
+            width: 253px;
+            height: 264px;
+            margin-right: 36px;
+        }
+
+        &__data {
+            display: flex;
+            flex-direction: column;
+            padding: 32px 32px 0px 0px;
+        }
+
+        &__title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        &__text {
+            color: $desc-text-color;
+            margin-bottom: 23px;
+            padding-right: 50px;
+        }
+
+        &__user-name {
+            font-size: 18px;
+            font-weight: 700;
+        }
+    }
+
+    &__pager {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 75px;
+    }
+
+    &__list {
+        display: flex;
+    }
+
+    &__item {
+        margin-right: 5px;
+        &:last-child{
+            margin-right: 0;
+        }
+        & img {
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            outline-offset: -4px;
+        }
+        &--active img{
+            outline: 4px solid $red;
+        }
+        &:hover img{
+            outline: 4px solid $red;
+        }
+    }
+}

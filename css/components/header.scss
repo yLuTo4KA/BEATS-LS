@@ -1,0 +1,56 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    padding: 25px 0 25px 0;
+
+    .logo {
+        margin-right: -30px;
+    }
+
+    .menu {
+        font-family: $nav-font;
+        font-weight: 400;
+
+        &__list {
+            display: flex;
+        }
+
+        &__item {
+            margin-right: 27px;
+            transition: color .2s, text-decoration .2s;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &:hover {
+                color: $red;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .contacts {
+        margin-right: 25px;
+
+
+        &__phone {
+            transition: color .2s, text-decoration .2s;
+            position: relative;
+
+            &:before {
+                content: url(../img/phone.png);
+                position: absolute;
+                left: -22px;
+            }
+        }
+
+        &__phone:hover {
+            color: $red;
+            text-decoration: underline;
+        }
+    }
+
+}

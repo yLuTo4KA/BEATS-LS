@@ -1,0 +1,32 @@
+
+.dashed {
+    width: 24px;
+    height: 24px;
+    background: #F2F5F4;
+    border-radius: 100%;
+    position: absolute;
+    right: -25px;
+    top: 55px;
+
+    &:before {
+        content: '';
+        width: 16px;
+        height: 16px;
+        background: #F2F5F4;
+        border-radius: 100%;
+        position: absolute;
+        left: -25px;
+        top: 5px;
+    }
+
+    &:after {
+        content: '';
+        width: 16px;
+        height: 16px;
+        background: #F2F5F4;
+        border-radius: 100%;
+        position: absolute;
+        right: -25px;
+        top: 5px;
+    }
+}
