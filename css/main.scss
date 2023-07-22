@@ -31,30 +31,9 @@ $nav-font: 'Alegreya Sans', sans-serif;
 @import "components/welcome.scss";
 @import "components/features.scss";
 @import "components/reviews.scss";
+@import "components/form.scss";
 
-
-// .fixed-menu{
-//     position: absolute;
-//     top: 250px;
-//     right: 425px;
-//     &__list{
-
-//     }
-//     &__item{
-//        &--active .fixed-menu__link{
-//         border-color: $red;
-//        }
-//     }
-//     &__link{
-//         width: 16px;
-//         height: 16px;
-//         border-radius: 50%;
-//         border: 1px solid transparent;
-//         display: block;
-//         position: relative;
-//     }
-// }
-
+@import "components/blocks/fixed-menu.scss";
 
 
 

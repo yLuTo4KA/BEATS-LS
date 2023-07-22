@@ -1,0 +1,72 @@
+@import "components/blocks/radio.scss";
+.form__container{
+    position: relative;
+    &::before{
+        content: url('../../img/icons/pentagon.png');
+        position: absolute;
+        top: -25px;
+        right: 0;
+
+    }
+}
+.form{
+    display: flex;
+
+    &__col{
+        flex: 1;
+        margin-right: 52px;
+
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+    &__row{
+        display: flex;
+        margin-bottom: 18px;
+    }
+    &__block{
+        flex: 1;
+        margin-right: 38px;
+
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+    &__input{
+        width: 100%;
+        border: none;
+        padding: 18px 10px;
+        border: 3px solid transparent;
+        border-radius: 5px;
+
+        &--textarea{
+            height: 120px;
+            resize: none;
+            margin-bottom: 10px;
+        }
+        &:focus{
+            border-color: $red;
+            outline: none;
+            color: $red;
+        }
+    }
+
+    &__controls{
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 16px;
+
+        &--radio{
+            margin-bottom: 44px;
+        }
+    }
+    &__btns{
+        margin-bottom: 85px;
+        .btn{
+            margin-right: 15px;
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+}

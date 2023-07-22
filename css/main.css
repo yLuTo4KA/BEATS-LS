@@ -46,7 +46,8 @@ ul {
 
 .container {
   width: 940px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  position: relative; }
 
 .btn {
   padding: 18px 41px;
@@ -59,6 +60,14 @@ ul {
   .btn:hover {
     background: #292929;
     color: #fff; }
+  .btn--bg--transperent {
+    background: transparent;
+    color: inherit;
+    text-transform: none;
+    padding: 0; }
+    .btn--bg--transperent:hover {
+      color: #E01F3D;
+      background: transparent; }
 
 .section {
   margin-bottom: 100px; }
@@ -70,6 +79,9 @@ ul {
       margin-bottom: 60px; }
     .section__info--review {
       margin-bottom: 10px; }
+    .section__info--order {
+      padding-top: 65px;
+      margin-bottom: 40px; }
   .section__title {
     font-size: 48px;
     font-weight: 700;
@@ -85,6 +97,9 @@ ul {
     width: 55%; }
   .section--bg--gray {
     background: #F5F5F5; }
+  .section--bg--black {
+    background: url("../img/order-bg.png") center center no-repeat, #181818;
+    color: #fff; }
 
 .header {
   display: flex;
@@ -173,88 +188,60 @@ ul {
     margin-bottom: 60px; }
 
 .feature {
-  padding: 0 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  position: relative; }
+  text-align: center; }
+  .feature__image-wrapper {
+    display: inline-block;
+    width: 126px;
+    height: 126px;
+    position: relative;
+    background: #F2F5F4;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 18px; }
   .feature__icon {
-    min-height: 128px;
-    margin-bottom: 20px; }
-    .feature__icon--sphere {
-      background: #F2F5F4;
-      width: 128px;
-      height: 128px;
-      border-radius: 100%; }
-      .feature__icon--sphere--battery {
-        background: #F2F5F4 url("../img/features/battery.png") center center no-repeat; }
-      .feature__icon--sphere--sound {
-        background: #F2F5F4 url("../img/features/sound.png") center center no-repeat; }
-      .feature__icon--sphere--timer {
-        background: #F2F5F4 url("../img/features/timer.png") center center no-repeat; }
-  .feature__text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100px; }
+    width: 68px;
+    height: 68px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
   .feature__title {
     font-size: 24px;
     font-weight: 700;
-    margin-bottom: 5px; }
+    margin-bottom: 2px; }
   .feature__desc {
     color: #666;
-    width: 217px; }
-
-.dashed {
-  width: 24px;
-  height: 24px;
-  background: #F2F5F4;
-  border-radius: 100%;
-  position: absolute;
-  right: -25px;
-  top: 55px; }
-  .dashed:before {
-    content: '';
-    width: 16px;
-    height: 16px;
-    background: #F2F5F4;
-    border-radius: 100%;
-    position: absolute;
-    left: -25px;
-    top: 5px; }
-  .dashed:after {
-    content: '';
-    width: 16px;
-    height: 16px;
-    background: #F2F5F4;
-    border-radius: 100%;
-    position: absolute;
-    right: -25px;
-    top: 5px; }
+    line-height: 1.2;
+    padding: 0 9px; }
 
 .features {
-  display: flex;
-  justify-content: space-between; }
+  display: flex; }
+  .features__item {
+    flex: 1;
+    padding: 0 3%;
+    position: relative; }
+    .features__item::after {
+      content: url("../../img/icons/separator.png");
+      position: absolute;
+      top: 55px;
+      right: 0;
+      transform: translateX(50%); }
+    .features__item:first-child {
+      padding-left: 0; }
+    .features__item:last-child {
+      padding-right: 0; }
+      .features__item:last-child::after {
+        display: none; }
 
 .reviews {
   display: flex;
   flex-direction: column;
   position: relative; }
-  .reviews::before {
-    content: "";
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background: #868686;
-    position: absolute;
-    bottom: 0;
-    left: 0; }
   .reviews .review {
     display: flex;
     background: #F8FAF9;
     padding: 42px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     position: relative; }
     .reviews .review::after {
       content: '';
@@ -269,8 +256,9 @@ ul {
       margin-left: auto;
       margin-right: auto; }
     .reviews .review__photo {
-      width: 253px;
-      height: 264px;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
       margin-right: 36px; }
     .reviews .review__data {
       display: flex;
@@ -282,8 +270,9 @@ ul {
       margin-bottom: 20px; }
     .reviews .review__text {
       color: #666;
-      margin-bottom: 23px;
-      padding-right: 50px; }
+      margin-bottom: 40px;
+      padding-right: 50px;
+      line-height: 1.2; }
     .reviews .review__user-name {
       font-size: 18px;
       font-weight: 700; }
@@ -294,15 +283,141 @@ ul {
   .reviews__list {
     display: flex; }
   .reviews__item {
+    width: 70px;
+    height: 70px;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    position: relative;
     margin-right: 5px; }
-    .reviews__item:last-child {
-      margin-right: 0; }
-    .reviews__item img {
-      width: 74px;
-      height: 74px;
+    .reviews__item--active {
+      border-color: #E01F3D; }
+    .reviews__item:hover {
+      border-color: #E01F3D; }
+  .reviews__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block; }
+  .reviews__item-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%; }
+
+.radio {
+  display: flex;
+  cursor: pointer;
+  user-select: none;
+  margin-right: 15px; }
+  .radio--checkbox .radio__visible {
+    border-radius: 5px; }
+    .radio--checkbox .radio__visible::before {
+      background: url("../../../img/icons/tick.png") center center no-repeat; }
+  .radio__elem {
+    display: none; }
+    .radio__elem:checked ~ .radio__visible::before {
+      display: block; }
+  .radio__visible {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    border-radius: 50%;
+    background: #fff;
+    margin-right: 10px; }
+    .radio__visible::before {
+      content: "";
+      display: none;
+      width: 14px;
+      height: 14px;
+      background: #E01F3D;
       border-radius: 50%;
-      outline-offset: -4px; }
-    .reviews__item--active img {
-      outline: 4px solid #E01F3D; }
-    .reviews__item:hover img {
-      outline: 4px solid #E01F3D; }
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+
+.form__container {
+  position: relative; }
+  .form__container::before {
+    content: url("../../img/icons/pentagon.png");
+    position: absolute;
+    top: -25px;
+    right: 0; }
+
+.form {
+  display: flex; }
+  .form__col {
+    flex: 1;
+    margin-right: 52px; }
+    .form__col:last-child {
+      margin-right: 0; }
+  .form__row {
+    display: flex;
+    margin-bottom: 18px; }
+  .form__block {
+    flex: 1;
+    margin-right: 38px; }
+    .form__block:last-child {
+      margin-right: 0; }
+  .form__input {
+    width: 100%;
+    border: none;
+    padding: 18px 10px;
+    border: 3px solid transparent;
+    border-radius: 5px; }
+    .form__input--textarea {
+      height: 120px;
+      resize: none;
+      margin-bottom: 10px; }
+    .form__input:focus {
+      border-color: #E01F3D;
+      outline: none;
+      color: #E01F3D; }
+  .form__controls {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 16px; }
+    .form__controls--radio {
+      margin-bottom: 44px; }
+  .form__btns {
+    margin-bottom: 85px; }
+    .form__btns .btn {
+      margin-right: 15px; }
+      .form__btns .btn:last-child {
+        margin-right: 0; }
+
+.fixed-menu {
+  position: fixed;
+  top: 20%;
+  right: 3%;
+  z-index: 999; }
+  .fixed-menu__item {
+    margin-bottom: 5px;
+    opacity: 60%; }
+    .fixed-menu__item--active {
+      opacity: 100; }
+      .fixed-menu__item--active .fixed-menu__link {
+        border-color: #E01F3D; }
+        .fixed-menu__item--active .fixed-menu__link::before {
+          background: #E01F3D; }
+  .fixed-menu__link {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    display: block;
+    position: relative; }
+    .fixed-menu__link::before {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      display: block;
+      border-radius: 50%;
+      background: #292929;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }

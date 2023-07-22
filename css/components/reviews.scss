@@ -2,22 +2,12 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    &::before{
-        content: "";
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        background: #868686;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
-
+   
     .review {
         display: flex;
         background: #F8FAF9;
         padding: 42px;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         position: relative;
         &::after{
             content: '';
@@ -35,8 +25,9 @@
         }
 
         &__photo {
-            width: 253px;
-            height: 264px;
+            object-fit: cover;
+            width:100%;
+            height: 100%;
             margin-right: 36px;
         }
 
@@ -54,8 +45,9 @@
 
         &__text {
             color: $desc-text-color;
-            margin-bottom: 23px;
+            margin-bottom: 40px;
             padding-right: 50px;
+            line-height: 1.2;
         }
 
         &__user-name {
@@ -75,21 +67,33 @@
     }
 
     &__item {
+        width: 70px;
+        height: 70px;
+        border: 3px solid transparent;
+        border-radius: 50%;
+        position: relative;
         margin-right: 5px;
-        &:last-child{
-            margin-right: 0;
+        &--active{
+            border-color: $red;
         }
-        & img {
-            width: 74px;
-            height: 74px;
-            border-radius: 50%;
-            outline-offset: -4px;
+        &:hover{
+            border-color: $red;
         }
-        &--active img{
-            outline: 4px solid $red;
-        }
-        &:hover img{
-            outline: 4px solid $red;
-        }
+    }
+
+    &__link{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+    }
+    &__item-img{
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
     }
 }

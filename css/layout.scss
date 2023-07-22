@@ -54,6 +54,7 @@ ul {
 .container {
     width: $container-width;
     margin: 0 auto;
+    position: relative;
 }
 
 .btn {
@@ -69,6 +70,18 @@ ul {
         background: $main-text-color;
         color: #fff;
     }
+
+    &--bg--transperent{
+        background: transparent;
+        color: inherit;
+        text-transform: none;
+        padding: 0;
+
+        &:hover{
+            color: $red;
+            background: transparent;
+        }
+    }
 }
 
 .section {
@@ -83,6 +96,10 @@ ul {
         }
         &--review{
             margin-bottom: 10px;
+        }
+        &--order{
+            padding-top: 65px;
+            margin-bottom: 40px;
         }
     }
 
@@ -106,5 +123,9 @@ ul {
 
     &--bg--gray {
         background: $gray;
+    }
+    &--bg--black{
+        background: url('../img/order-bg.png') center center no-repeat, #181818;
+        color: #fff;
     }
 }
