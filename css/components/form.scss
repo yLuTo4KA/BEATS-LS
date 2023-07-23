@@ -1,8 +1,8 @@
-@import "components/blocks/radio.scss";
+@import "radio.scss";
 .form__container{
     position: relative;
     &::before{
-        content: url('../../img/icons/pentagon.png');
+        content: url('../img/icons/pentagon.png');
         position: absolute;
         top: -25px;
         right: 0;
