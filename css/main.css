@@ -221,7 +221,7 @@ ul {
     padding: 0 3%;
     position: relative; }
     .features__item::after {
-      content: url("../../img/icons/separator.png");
+      content: url("../img/icons/separator.png");
       position: absolute;
       top: 55px;
       right: 0;
