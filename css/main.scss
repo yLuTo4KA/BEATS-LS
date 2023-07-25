@@ -36,8 +36,60 @@ $nav-font: 'Alegreya Sans', sans-serif;
 @import "components/fixed-menu.scss";
 
 
+@media (max-width: 768px){
+    .header{
+        padding-left: 20px;
+        padding-right: 20px;
+        .menu{
+            display: none;
+        }
+        .contacts{
+            display: none;
+        }
+        .nav__hide{
+            display: inline;
+        }
+    }
+    .welcome{
+        background: none;
+        display: flex;
+        flex-direction: column;
+        &__img-section{
+            margin: 0 auto;
+            box-sizing: border-box;
+            display: inline;
+            max-width: 323px;
+            margin-bottom: 60px;
+            img{
+                width: 100%;
+            }
+        }
+        &::after{
+            content: '';
 
-
+            margin: 0 auto;
+            
+        }
+        
+        &__text-section{
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+        &__desc{
+            width: 50%;
+            margin: 0 auto;
+            margin-bottom: 30px;
+        }
+        &__specification-section{
+            display: none;
+        }
+        
+    }
+}
+@media (max-width: 480px){
+    
+}
 
 
 

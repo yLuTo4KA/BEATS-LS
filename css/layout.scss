@@ -10,7 +10,7 @@ body {
 .wrapper {
     position: relative;
     width: 100%;
-    min-width: $container-width + 20px;
+    min-width: 0px;
     min-height: 100%;
     overflow: hidden;
 }
@@ -52,13 +52,14 @@ ul {
 }
 
 .container {
-    width: $container-width;
+    width: auto;
+    max-width: 940px;
     margin: 0 auto;
     position: relative;
 }
 
 .btn {
-    padding: 18px 41px;
+    padding: 18px 41px;   
     color: #fff;
     background: $red;
     text-transform: uppercase;
@@ -86,7 +87,20 @@ ul {
 
 .section {
     margin-bottom: 100px;
-
+    height: 100vh;
+    &--hero{
+        position: relative;
+        &::before{
+            content: '';
+            width: 46.32px;
+            height: 10.38px;
+            background: #C4C4C4;
+            transform: rotate(-45deg);
+            position: absolute;
+            bottom: -4px;
+            right: 45px;
+        }
+    }
     &__info {
         display: flex;
         flex-direction: column;
