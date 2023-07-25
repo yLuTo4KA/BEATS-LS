@@ -14,14 +14,14 @@
 
     &__title {
         font-weight: 700;
-        font-size: 3rem;
+        font-size: $title;
         line-height: 1.1;
         text-transform: uppercase;
         margin-bottom: 15px;
     }
 
     &__desc {
-        font-size: 1.31rem;
+        font-size: $sub_title;
         font-family: $nav-font;
         margin-bottom: 50px;
     }

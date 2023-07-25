@@ -497,11 +497,33 @@ ul {
       margin: 0 auto;
       margin-bottom: 30px; }
     .welcome__specification-section {
-      display: none; } }
+      display: none; }
+
+  .section__title {
+    width: 100%; }
+  .section__desc {
+    width: 78%; }
+
+  .features__item::after {
+    display: none; } }
 @media (max-width: 480px) {
   .welcome__title {
     font-size: 2rem; }
   .welcome__desc {
     font-size: 1.125rem; }
   .welcome__btn {
-    font-size: 1.1875rem; } }
+    font-size: 1.1875rem; }
+
+  .section__title {
+    font-size: 2rem; }
+
+  .features {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    .features .feature {
+      display: flex;
+      text-align: left;
+      justify-content: center; }
+      .features .feature__desc {
+        padding: 0; } }
