@@ -1,7 +1,10 @@
+html{
+    font-size: 16px;
+}
 body {
     font-family: $main-font;
     color: $main-text-color;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.4;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -66,6 +69,7 @@ ul {
     font-weight: 700;
     border-radius: 100px;
     transition: background .4s, color .4s;
+    display: inline-block;
 
     &:hover {
         background: $main-text-color;
@@ -118,7 +122,7 @@ ul {
     }
 
     &__title {
-        font-size: 48px;
+        font-size: 3rem;
         font-weight: 700;
         line-height: 1.1;
         text-transform: uppercase;

@@ -1,9 +1,12 @@
 @import url("./normalize.css");
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Play:wght@400;700&display=swap");
+html {
+  font-size: 16px; }
+
 body {
   font-family: "Play", sans-serif;
   color: #292929;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
@@ -57,7 +60,8 @@ ul {
   text-transform: uppercase;
   font-weight: 700;
   border-radius: 100px;
-  transition: background .4s, color .4s; }
+  transition: background .4s, color .4s;
+  display: inline-block; }
   .btn:hover {
     background: #292929;
     color: #fff; }
@@ -96,7 +100,7 @@ ul {
       padding-top: 65px;
       margin-bottom: 40px; }
   .section__title {
-    font-size: 48px;
+    font-size: 3rem;
     font-weight: 700;
     line-height: 1.1;
     text-transform: uppercase;
@@ -206,12 +210,12 @@ ul {
     margin-bottom: 80px; }
   .welcome__title {
     font-weight: 700;
-    font-size: 48px;
+    font-size: 3rem;
     line-height: 1.1;
     text-transform: uppercase;
     margin-bottom: 15px; }
   .welcome__desc {
-    font-size: 21px;
+    font-size: 1.31rem;
     font-family: "Alegreya Sans", sans-serif;
     margin-bottom: 50px; }
   .welcome__specification-section {
@@ -459,15 +463,15 @@ ul {
       transform: translate(-50%, -50%); }
 
 @media (max-width: 768px) {
-  .header {
-    padding-left: 20px;
-    padding-right: 20px; }
-    .header .menu {
-      display: none; }
-    .header .contacts {
-      display: none; }
-    .header .nav__hide {
-      display: inline; }
+  .container {
+    max-width: 700px; }
+
+  .header .menu {
+    display: none; }
+  .header .contacts {
+    display: none; }
+  .header .nav__hide {
+    display: inline; }
 
   .welcome {
     background: none;
@@ -489,8 +493,15 @@ ul {
       width: 100%;
       text-align: center; }
     .welcome__desc {
-      width: 50%;
+      width: 59%;
       margin: 0 auto;
       margin-bottom: 30px; }
     .welcome__specification-section {
       display: none; } }
+@media (max-width: 480px) {
+  .welcome__title {
+    font-size: 2rem; }
+  .welcome__desc {
+    font-size: 1.125rem; }
+  .welcome__btn {
+    font-size: 1.1875rem; } }
