@@ -1,6 +1,9 @@
 html{
     font-size: 16px;
 }
+*{
+    box-sizing: border-box;
+}
 body {
     font-family: $main-font;
     color: $main-text-color;
@@ -8,6 +11,7 @@ body {
     line-height: 1.4;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    
 }
 
 .wrapper {
@@ -91,7 +95,7 @@ ul {
 
 .section {
     margin-bottom: 100px;
-    height: 100vh;
+    min-height: 100vh;
     &--hero{
         position: relative;
         &::before{

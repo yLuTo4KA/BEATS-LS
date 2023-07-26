@@ -1,0 +1,52 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__info{
+        font-size: 1.125rem;
+    }
+    &__phone {
+        transition: color .2s, text-decoration .2s;
+        position: relative;
+
+        &:before {
+            content: url(../img/phone.png);
+            display: inline-flex;
+            left: -22px;
+            margin-right: 5px;
+        }
+        &:hover{
+            color: $red;
+            text-decoration: underline;
+        }
+    }
+    
+
+    &__nav{
+
+        &-list{
+            display: flex;
+            
+        }
+        &-item{
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius:  50%;
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+        &-link{
+            width: 100%;
+            height: 100%;
+        }
+        &-img{
+            display: block;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+        }
+        
+    }
+}
