@@ -1,19 +1,27 @@
 .feature{
     text-align: center;
-
+    @include phones{
+        display: flex;
+        text-align: left;
+        align-items: center;
+    }
     &__image-wrapper{
         display: inline-block;
-        width: 126px;
-        height: 126px;
+        width: rem(126px);
+        height: rem(126px);
         position: relative;
         background: #F2F5F4;
         border-radius: 50%;
         overflow: hidden;
-        margin-bottom: 18px;
+        margin-bottom: rem(18px);
+        @include phones{
+            margin-bottom: 0;
+            margin-right: rem(20px);
+        }
     }
     &__icon{
-        width: 68px;
-        height: 68px;
+        width: rem(68px);
+        height: rem(68px);
         position: absolute;
         top: 50%;
         left: 50%;
@@ -21,13 +29,17 @@
     }
 
     &__title{
-        font-size: 24px;
+        font-size: rem(24px);
         font-weight: 700;
-        margin-bottom: 2px;
+        margin-bottom: rem(2px);
     }
     &__desc{
         color: $desc-text-color;
         line-height: 1.2;
-        padding: 0 9px;
+        padding: 0 rem(9px);
+        @include phones{
+            padding: 0;
+            font-size: 1.142rem;
+        }
     }
 }

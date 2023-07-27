@@ -2,23 +2,28 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 18px;
-    padding: 25px 0 25px 0;
+    font-size: rem(18px);
+    padding: rem(25px) 0 rem(25px) 0;
 
     .logo {
-        margin-right: -30px;
+        margin-right: rem(-30px);
     }
 
     .menu {
         font-family: $nav-font;
         font-weight: 400;
+        margin: 0px rem(35px);
 
         &__list {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
         }
 
         &__item {
-            margin-right: 27px;
+            margin-right: rem(27px);
+            margin-bottom: rem(5px);
             transition: color .2s, text-decoration .2s;
 
             &:last-child {
@@ -30,10 +35,15 @@
                 text-decoration: underline;
             }
         }
+
+        @include tablets{
+            display: none;
+        }
+       
     }
 
     .contacts {
-        margin-right: 25px;
+        margin-right: rem(25px);
 
 
         &__phone {
@@ -43,7 +53,7 @@
             &:before {
                 content: url(../img/phone.png);
                 position: absolute;
-                left: -22px;
+                left: rem(-22px);
             }
         }
 
@@ -51,13 +61,16 @@
             color: $red;
             text-decoration: underline;
         }
+        @include tablets{
+            display: none;
+        }
     }
     .nav__hide{
-        width: 26.11px;
-        height: 4.44px;
+        width: rem(26.11px);
+        height: rem(4.44px);
         background: #292929;
         position: relative;
-        border-radius: 5px;
+        border-radius: rem(5px);
         display: none;
         transition: background .3s;
         &:hover{
@@ -68,27 +81,29 @@
         }
         &::after{
             content: "";
-            width: 26.11px;
-            height: 4.44px;
+            width: rem(26.11px);
+            height: rem(4.44px);
             background: #292929;
-            border-radius: 5px;
+            border-radius: rem(5px);
             position: absolute;
-            top: -8px;
+            top: rem(-8px);
             transition: background .3s;
             
         }
         &::before{
             content: "";
-            width: 26.11px;
-            height: 4.44px;
+            width: rem(26.11px);
+            height: rem(4.44px);
             background: #292929;
-            border-radius: 5px;
+            border-radius: rem(5px);
             position: absolute;
-            bottom: -8px;
+            bottom: rem(-8px);
             transition: background .3s;
             
         }
-       
+        @include tablets{
+            display: inline-flex;
+        }
     }
 }
 

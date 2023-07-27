@@ -1,45 +1,80 @@
 @import "specification.scss";
 .welcome {
-    padding-top: 62px;
+    padding-top: rem(62px);
     background: url(../img/headphones_white.png) right center / 50% auto no-repeat;
-    
-    &__img-section{
-        display: none;
+    @include tablets{
+        background: none;
     }
+  
     &__text-section {
         width: 35%;
-        margin-bottom: 80px;
-        
+        margin-bottom: rem(80px);
+        @include tablets{
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            &::before{
+                content: '';
+                width: 323px;
+                height: 323px;
+                background: url('../../img/headphones_white.png') center center no-repeat;
+                background-size: contain;
+                margin-bottom: rem(70px);
+                
+            }
+        }
     }
     &__btn{
-        margin-bottom: 50px;
+        margin-bottom: rem(50px);
     }
     &__title {
         font-weight: 700;
         font-size: $title;
         line-height: 1.1;
         text-transform: uppercase;
-        margin-bottom: 15px;
+        margin-bottom: rem(10px);
+        @include tablets{
+            padding: 0 rem(80px);
+        }
+        @include phones{
+            font-size: 2.285rem;
+        }
+       
+        
     }
 
     &__desc {
         font-size: $sub_title;
         font-family: $nav-font;
-        margin-bottom: 50px;
+        margin-bottom: rem(20px);
+        @include tablets{
+            padding: 0 25%;
+        }
+        @include phones{
+            padding: 0 16%;
+            font-size: 1.285rem;
+        }
     }
 
     &__specification-section {
         width: 60%;
+        @include tablets{
+            display: none;
+        }
     }
 
     &__specification-list {
         display: flex;
-        flex-wrap: wrap;
+        
     }
 
     &__specification-item {
-        margin-right: 10px;
-        margin-bottom: 60px;
+        margin-right: rem(10px);
+        margin-bottom: rem(60px);
     }
 
 }

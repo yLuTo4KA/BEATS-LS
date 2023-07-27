@@ -4,70 +4,96 @@
     &::before{
         content: url('../img/icons/pentagon.png');
         position: absolute;
-        top: -25px;
+        top: rem(-25px);
         right: 0;
 
     }
 }
 .form{
     display: flex;
-
+    @include tablets{
+        flex-direction: column;
+        padding: 0 18%;
+    }
+    @include phones{
+        padding: 0;
+        font-size: 1.142rem;
+    }
     &__col{
         flex: 1;
-        margin-right: 52px;
+        margin-right: rem(52px);
 
         &:last-child{
+            margin-right: 0;
+        }
+        @include tablets{
             margin-right: 0;
         }
     }
     &__row{
         display: flex;
-        margin-bottom: 18px;
+        margin-bottom: rem(18px);
     }
     &__block{
         flex: 1;
-        margin-right: 38px;
+        margin-right: rem(38px);
 
         &:last-child{
             margin-right: 0;
+        }
+        @include tablets{
+            margin-right: rem(20px);
         }
     }
     &__input{
         box-sizing: border-box;
         width: 100%;
         border: none;
-        padding: 18px 10px;
-        border: 3px solid transparent;
-        border-radius: 5px;
+        padding: rem(18px) rem(10px);
+        border: rem(3px) solid transparent;
+        border-radius: rem(5px);
 
         &--textarea{
-            height: 120px;
+            height: rem(120px);
             resize: none;
-            margin-bottom: 10px;
+            margin-bottom: rem(10px);
+            @include tablets{
+                height: rem(90px);
+            }
         }
         &:focus{
             border-color: $red;
             outline: none;
             color: $red;
         }
+        @include tablets{
+            padding: rem(8px) rem(10px);
+        }
     }
 
     &__controls{
         display: flex;
         flex-wrap: wrap;
-        margin-bottom: 16px;
+        margin-bottom: rem(16px);
 
         &--radio{
-            margin-bottom: 44px;
+            margin-bottom: rem(44px);
+        }
+        @include phones{
+            justify-content: center;
         }
     }
     &__btns{
-        margin-bottom: 85px;
+        margin-bottom: rem(85px);
         .btn{
-            margin-right: 15px;
+            margin-right: rem(15px);
             &:last-child{
                 margin-right: 0;
             }
+        }
+        @include tablets{
+            display: flex;
+            justify-content: center;
         }
     }
 }

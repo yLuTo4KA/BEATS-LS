@@ -1,24 +1,56 @@
 .footer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: rem(25px) 0;
+    background: #fff;
+    &__container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include phones{
+            flex-direction: column;
+            text-align: center;
+        }
+    }
     &__info{
         font-size: 1.125rem;
+        @include phones{
+            margin-bottom: rem(20px);
+        }
+        @include tablets{
+            &-location{
+                font-size: 1.4rem;
+                @include phones{
+                    font-size: 1.285rem;
+                }
+            }
+            
+        }
+        
     }
     &__phone {
         transition: color .2s, text-decoration .2s;
         position: relative;
+        @include tablets{
+            font-size: 1.2rem;
+            @include phones{
+                font-size: 1.142rem;
+            }
+        }
 
         &:before {
             content: url(../img/phone.png);
             display: inline-flex;
-            left: -22px;
-            margin-right: 5px;
+            left: rem(-22px);
+            margin-right: rem(5px);
         }
         &:hover{
             color: $red;
             text-decoration: underline;
         }
+        
     }
     
 
@@ -29,9 +61,9 @@
             
         }
         &-item{
-            width: 30px;
-            height: 30px;
-            margin-right: 10px;
+            width: rem(30px);
+            height: rem(30px);
+            margin-right: rem(10px);
             border-radius:  50%;
             &:last-child{
                 margin-right: 0;

@@ -1,5 +1,12 @@
 html{
-    font-size: 16px;
+    font-size: $baseFontSize;
+    height: 100%;
+    @include tablets{
+        font-size: $baseFontSize - 1px;
+    }
+    @include phones{
+        font-size: $baseFontSize - 2px;
+    }
 }
 *{
     box-sizing: border-box;
@@ -7,17 +14,17 @@ html{
 body {
     font-family: $main-font;
     color: $main-text-color;
-    font-size: 1rem;
     line-height: 1.4;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    height: 100%;
     
 }
 
 .wrapper {
     position: relative;
     width: 100%;
-    min-width: 0px;
+    min-width: rem(0px);
     min-height: 100%;
     overflow: hidden;
 }
@@ -46,6 +53,7 @@ button {
 a {
     text-decoration: none;
     color: inherit;
+    white-space: nowrap;
 }
 
 ul {
@@ -59,19 +67,20 @@ ul {
 }
 
 .container {
-    width: auto;
-    max-width: 940px;
+    width: 100%;
+    padding: rem(10px);
+    max-width: rem(940px);
     margin: 0 auto;
     position: relative;
 }
 
 .btn {
-    padding: 18px 41px;   
+    padding: rem(18px) rem(41px);   
     color: #fff;
     background: $red;
     text-transform: uppercase;
     font-weight: 700;
-    border-radius: 100px;
+    border-radius: rem(100px);
     transition: background .4s, color .4s;
     display: inline-block;
 
@@ -91,22 +100,25 @@ ul {
             background: transparent;
         }
     }
+    @include phones{
+        font-size: 1.357rem;
+    }
 }
 
 .section {
-    margin-bottom: 100px;
+    margin-bottom: rem(100px);
     min-height: 100vh;
     &--hero{
         position: relative;
         &::before{
             content: '';
-            width: 46.32px;
-            height: 10.38px;
+            width: rem(46.32px);
+            height: rem(10.38px);
             background: #C4C4C4;
             transform: rotate(-45deg);
             position: absolute;
-            bottom: -4px;
-            right: 45px;
+            bottom: rem(-4px);
+            right: rem(45px);
         }
     }
     &__info {
@@ -114,14 +126,14 @@ ul {
         flex-direction: column;
         align-items: center;
         &--features{
-            margin-bottom: 60px;
+            margin-bottom: rem(60px);
         }
         &--review{
-            margin-bottom: 10px;
+            margin-bottom: rem(10px);
         }
         &--order{
-            padding-top: 65px;
-            margin-bottom: 40px;
+            padding-top: rem(65px);
+            margin-bottom: rem(40px);
         }
     }
 
@@ -131,16 +143,22 @@ ul {
         line-height: 1.1;
         text-transform: uppercase;
         text-align: center;
-        width: 65%;
-        margin-bottom: 20px;
+        
+        margin-bottom: rem(10px);
         z-index: 999;
-
+        @include phones{
+            font-size: 2.285rem;
+        }
     }
 
     &__desc {
         color: $desc-text-color;
         text-align: center;
-        width: 55%;
+        padding: 0 15%;
+        @include phones{
+            font-size: 1.142rem;
+            padding: 0 3%;
+        }
     }
 
     &--bg--gray {
@@ -149,5 +167,8 @@ ul {
     &--bg--black{
         background: url('../img/order-bg.png') center center no-repeat, #181818;
         color: #fff;
+    }
+    &--margin--none{
+        margin: 0;
     }
 }

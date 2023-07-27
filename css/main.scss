@@ -15,10 +15,17 @@ $nav-font: 'Alegreya Sans', sans-serif;
 
 
 // fonts-size
+@import "media";
+$baseFontSize: 16px;
+$title: rem(48px);
+$desc: rem(16px);
+$sub_title: rem(21px);
 
-$title: 3rem;
-$desc: 1rem;
-$sub_title: 1.31rem;
+// media 
+$tablets: 768px;
+$phones: 480px;
+
+
 // normalize 
 
 @import url('./normalize.css');
@@ -38,215 +45,216 @@ $sub_title: 1.31rem;
 @import "components/reviews.scss";
 @import "components/form.scss";
 @import "components/footer.scss";
+@import "components/map.scss";
 
 @import "components/fixed-menu.scss";
 
 
-@media (max-width: 768px){
+// @media (max-width: 768px){
 
-    .container{
-        max-width: 680px;
-    }
-    // WELCOME SECTION
-    .header{
+//     .container{
+//         max-width: rem(680px);
+//     }
+//     // WELCOME SECTION
+//     .header{
         
-        .menu{
-            display: none;
-        }
-        .contacts{
-            display: none;
-        }
-        .nav__hide{
-            display: inline;
-        }
-    }
-    .welcome{
-        background: none;
-        display: flex;
-        flex-direction: column;
-        &__img-section{
-            margin: 0 auto;
-            box-sizing: border-box;
-            display: inline;
-            max-width: 323px;
-            margin-bottom: 60px;
-            img{
-                width: 100%;
-            }
-        }
-        &::after{
-            content: '';
+//         .menu{
+//             display: none;
+//         }
+//         .contacts{
+//             display: none;
+//         }
+//         .nav__hide{
+//             display: inline;
+//         }
+//     }
+//     .welcome{
+//         background: none;
+//         display: flex;
+//         flex-direction: column;
+//         &__img-section{
+//             margin: 0 auto;
+//             box-sizing: border-box;
+//             display: inline;
+//             max-width: rem(323px);
+//             margin-bottom: rem(60px);
+//             img{
+//                 width: 100%;
+//             }
+//         }
+//         &::after{
+//             content: '';
 
-            margin: 0 auto;
+//             margin: 0 auto;
             
-        }
+//         }
         
-        &__text-section{
-            margin: 0 auto;
-            width: 100%;
-            text-align: center;
-        }
-        &__desc{
-            width: 59%;
-            margin: 0 auto;
-            margin-bottom: 30px;
-        }
-        &__specification-section{
-            display: none;
-        }
+//         &__text-section{
+//             margin: 0 auto;
+//             width: 100%;
+//             text-align: center;
+//         }
+//         &__desc{
+//             width: 59%;
+//             margin: 0 auto;
+//             margin-bottom: rem(30px);
+//         }
+//         &__specification-section{
+//             display: none;
+//         }
         
-    }
-    //
-    .section{
+//     }
+//     //
+//     .section{
         
-        &__title{
-            width: 100%;
-        }
-        &__desc{
-            width: 78%;
-        }
-    }
-    // features
-    .features{
-        &__item{
-            &::after{
-                display: none;
-            }
-        }
-    }
-    //
+//         &__title{
+//             width: 100%;
+//         }
+//         &__desc{
+//             width: 78%;
+//         }
+//     }
+//     // features
+//     .features{
+//         &__item{
+//             &::after{
+//                 display: none;
+//             }
+//         }
+//     }
+//     //
 
-    //reviews
-    .reviews{
-        .review{
-            flex-direction: column;
-            text-align: center;
-            &__photo{
+//     //reviews
+//     .reviews{
+//         .review{
+//             flex-direction: column;
+//             text-align: center;
+//             &__photo{
                 
-                img{
-                    max-width: 130px;
-                    max-height: 130px;
-                }
-            }
-            &__text{
-                padding-right: 0;
-            }
+//                 img{
+//                     max-width: rem(130px);
+//                     max-height: rem(130px);
+//                 }
+//             }
+//             &__text{
+//                 padding-right: 0;
+//             }
 
-        }
-    }
-    //
-    // form
-    .form{
-        flex-direction: column;
-        &__input{
-            padding: 8px 10px;
-            &--textarea{
-                width: 92%;
-            }
-        }
-        &__btns{
-            display: flex;
-            justify-content: center;
-        }
-    }
-    //
+//         }
+//     }
+//     //
+//     // form
+//     .form{
+//         flex-direction: column;
+//         &__input{
+//             padding: rem(8px) rem(10px);
+//             &--textarea{
+//                 width: 92%;
+//             }
+//         }
+//         &__btns{
+//             display: flex;
+//             justify-content: center;
+//         }
+//     }
+//     //
 
-    //footer
-    .footer{
+//     //footer
+//     .footer{
         
-        &__info{
-            &-location{
-                font-size: 1.31rem;
-            }
-        }
-        &__nav{
-            &-item{
-                width: 32px;
-                height: 32px;
-            }
-        }
+//         &__info{
+//             &-location{
+//                 font-size: 1.31rem;
+//             }
+//         }
+//         &__nav{
+//             &-item{
+//                 width: rem(32px);
+//                 height: rem(32px);
+//             }
+//         }
        
-    }
-    //
-}
-@media (max-width: 480px){
-    $title: 2rem;
-    $sub_title: 1.125rem;
-    //WELCOME SECTION
-    .container{
-        max-width: 450px;
-    }
-    .welcome{
-        &__title{
-            font-size: $title;
-        }
-        &__desc{
-            font-size: $sub_title;
-        }
-        &__btn{
-            font-size: 1.1875rem;
-        }
-    }
-    //
-    .section{
+//     }
+//     //
+// }
+// @media (max-width: 480px){
+//     $title: 2rem;
+//     $sub_title: 1.125rem;
+//     //WELCOME SECTION
+//     .container{
+//         max-width: rem(450px);
+//     }
+//     .welcome{
+//         &__title{
+//             font-size: $title;
+//         }
+//         &__desc{
+//             font-size: $sub_title;
+//         }
+//         &__btn{
+//             font-size: 1.1875rem;
+//         }
+//     }
+//     //
+//     .section{
         
-        &__title{
-            font-size: $title;
-        }
+//         &__title{
+//             font-size: $title;
+//         }
         
-    }
+//     }
     
-    //
-    // features
-    .features{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        .feature{
-            display: flex;
-            text-align: left;
+//     //
+//     // features
+//     .features{
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-between;
+//         .feature{
+//             display: flex;
+//             text-align: left;
             
-            justify-content: center;
-            &__desc{
-                padding: 0;
-            }
-        }
-    }
-    //
-    //form
-    .form{
-        &__input{
-            &--textarea{
-                width: 88%;
-            }
-        }
-        &__controls{
-            justify-content: center;
-        }
-    }
-    //
-    // footer
-    .footer{
-        flex-direction: column;
-        text-align: center;
+//             justify-content: center;
+//             &__desc{
+//                 padding: 0;
+//             }
+//         }
+//     }
+//     //
+//     //form
+//     .form{
+//         &__input{
+//             &--textarea{
+//                 width: 88%;
+//             }
+//         }
+//         &__controls{
+//             justify-content: center;
+//         }
+//     }
+//     //
+//     // footer
+//     .footer{
+//         flex-direction: column;
+//         text-align: center;
 
-        &__info{
-            margin-bottom: 10px;
-            &-location{
-                margin-bottom: 10px;
-            }
-        }
-        &__nav{
-            &-item{
-                width: 24px;
-                height: 24px;
-            }
-        }
+//         &__info{
+//             margin-bottom: rem(10px);
+//             &-location{
+//                 margin-bottom: rem(10px);
+//             }
+//         }
+//         &__nav{
+//             &-item{
+//                 width: rem(24px);
+//                 height: rem(24px);
+//             }
+//         }
         
-    }
-    //
+//     }
+//     //
     
-}
+// }
 
 
 
