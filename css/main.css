@@ -171,17 +171,18 @@ ul {
       .header .menu {
         display: none; } }
   .header .contacts {
-    margin-right: 1.5625rem; }
-    .header .contacts__phone {
-      transition: color .2s, text-decoration .2s;
-      position: relative; }
-      .header .contacts__phone:before {
-        content: url(../img/phone.png);
-        position: absolute;
-        left: -1.375rem; }
-    .header .contacts__phone:hover {
+    margin-right: 1.5625rem;
+    display: inline-flex;
+    align-items: center;
+    transition: color .2s, text-decoration .2s, fill .2s; }
+    .header .contacts__icon {
+      width: 0.875rem;
+      height: 0.875rem;
+      margin-right: 0.3125rem; }
+    .header .contacts:hover {
       color: #E01F3D;
-      text-decoration: underline; }
+      text-decoration: underline;
+      fill: #E01F3D; }
     @media screen and (max-width: 768px) {
       .header .contacts {
         display: none; } }
@@ -259,7 +260,7 @@ ul {
           content: '';
           width: 323px;
           height: 323px;
-          background: url("../../img/headphones_white.png") center center no-repeat;
+          background: url("../img/headphones_white.png") center center no-repeat;
           background-size: contain;
           margin-bottom: 4.375rem; } }
   .welcome__btn {
@@ -474,7 +475,8 @@ ul {
   display: flex;
   cursor: pointer;
   user-select: none;
-  margin-right: 0.9375rem; }
+  margin-right: 0.9375rem;
+  margin-bottom: 0.625rem; }
   @media screen and (max-width: 768px) {
     .radio {
       margin-bottom: 0.625rem; } }
@@ -650,7 +652,7 @@ ul {
     height: 100%; }
 
 .map {
-  content: url("../../img/icons/map.png");
+  content: url("../img/icons/map.png");
   width: 100%;
   height: 652px; }
   .map__section {

@@ -3,6 +3,7 @@
     cursor: pointer;
     user-select: none;
     margin-right: rem(15px);
+    margin-bottom: rem(10px);
     @include tablets{
         margin-bottom: rem(10px);
     }

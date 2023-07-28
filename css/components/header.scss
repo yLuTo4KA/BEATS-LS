@@ -44,22 +44,19 @@
 
     .contacts {
         margin-right: rem(25px);
+        display: inline-flex;
+        align-items: center;
+        transition: color .2s, text-decoration .2s, fill .2s;
 
-
-        &__phone {
-            transition: color .2s, text-decoration .2s;
-            position: relative;
-
-            &:before {
-                content: url(../img/phone.png);
-                position: absolute;
-                left: rem(-22px);
-            }
+        &__icon{
+            width: rem(14px);
+            height: rem(14px);
+            margin-right: rem(5px);
         }
-
-        &__phone:hover {
+        &:hover{
             color: $red;
             text-decoration: underline;
+            fill: $red;
         }
         @include tablets{
             display: none;
