@@ -545,7 +545,7 @@ ul {
     margin-bottom: 1.125rem; }
   .form__block {
     flex: 1;
-    margin-right: 2.375rem; }
+    margin-right: 1rem; }
     .form__block:last-child {
       margin-right: 0; }
     @media screen and (max-width: 768px) {
