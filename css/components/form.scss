@@ -2,7 +2,7 @@
 .form__container{
     position: relative;
     &::before{
-        content: url('../img/icons/pentagon.png');
+        content: url('../img/icons/decoration/pentagon.svg');
         position: absolute;
         top: rem(-25px);
         right: 0;

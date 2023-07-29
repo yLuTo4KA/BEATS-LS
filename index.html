@@ -15,7 +15,9 @@
             <div class="container hero__container">
                 <header class="header">
                     <a href="#" class="logo">
-                        <img src="./img/logo.png" alt="Logo">
+                        <svg class="logo__icon">
+                            <use xlink:href="./img/icons/sprite.svg#logo"></use>
+                        </svg>
                     </a>
                     <nav class="menu">
                         <ul class="menu__list">
@@ -29,7 +31,7 @@
                         </ul>
                     </nav>
                     <adress class="contacts">
-                        <svg width="14" height="14" class="contacts__icon">
+                        <svg class="contacts__icon">
                             <use xlink:href="./img/icons/sprite.svg#phone"></use>
                         </svg>
                         <a href="tel:+78009039090" class="contacts__phone">8 800 903 90 90</a>
@@ -49,7 +51,7 @@
                     <div class="welcome__specification-section">
                         <ul class="welcome__specification-list">
                             <li class="welcome__specification-item specification">
-                                <svg class="specification__icon specification__icon--noise" width="41">
+                                <svg class="specification__icon specification__icon--noise">
                                     <use xlink:href="./img/icons/sprite.svg#noise"></use>
                                 </svg>
                                 <div class="specification-text">
@@ -57,15 +59,15 @@
                                 </div>
                             </li>
                             <li class="welcome__specification-item specification">
-                                <svg class="specification__icon specification__icon--battery" width="41">
-                                    <use xlink:href="./img/icons/sprite.svg#battery"></use>
+                                <svg class="specification__icon specification__icon--battery">
+                                    <use xlink:href="./img/icons/sprite.svg#battery__charging"></use>
                                 </svg>
                                 <div class="specification-text">
                                     До 40 часов работы
                                 </div>
                             </li>
                             <li class="welcome__specification-item specification">
-                                <svg class="specification__icon specification__icon--charger" width="41">
+                                <svg class="specification__icon specification__icon--charger">
                                     <use xlink:href="./img/icons/sprite.svg#charger"></use>
                                 </svg>
                                 <div class="specification-text">
@@ -88,7 +90,9 @@
                     <li class="feature features__item">
                         <div class="feature__image">
                             <div class="feature__image-wrapper">
-                                <img src="./img/features/battery.png" alt="Battery" class="feature__icon">
+                                <svg class="feature__icon feature__icon--battery">
+                                    <use xlink:href="./img/icons/sprite.svg#battery"></use>
+                                </svg>
                             </div>
                         </div>
                         <div class="feature__text">
@@ -105,7 +109,9 @@
                     <li class="feature features__item">
                         <div class="feature__image">
                             <div class="feature__image-wrapper">
-                                <img src="./img/features/sound.png" alt="Battery" class="feature__icon">
+                                <svg class="feature__icon feature__icon--sound">
+                                    <use xlink:href="./img/icons/sprite.svg#sound"></use>
+                                </svg>
                             </div>
                         </div>
                         <div class="feature__text">
@@ -123,7 +129,9 @@
                     <li class="feature features__item">
                         <div class="feature__image">
                             <div class="feature__image-wrapper">
-                                <img src="./img/features/timer.png" alt="Battery" class="feature__icon">
+                                <svg class="feature__icon feature__icon--timer">
+                                    <use xlink:href="./img/icons/sprite.svg#timer"></use>
+                                </svg>
                             </div>
                         </div>
                         <div class="feature__text">
@@ -150,7 +158,7 @@
                 <div class="reviews">
                     <div class="review">
                         <div class="review__photo">
-                            <img src="./img/review/user.png" alt="User Photo"class="review__photo-user">
+                            <img src="./img/user1.png" alt="User Photo"class="review__photo-user">
                         </div>
                         <div class="review__data">
                             <h2 class="review__title">Отличный звук</h2>
@@ -162,9 +170,9 @@
                     </div>
                     <div class="reviews__pager">
                         <ul class="reviews__list">
-                            <li class="reviews__item reviews__item--active"><a href="#" class="reviews__link"><img src="./img/review/user.png" alt="User photo" class="reviews__item-img"></a></li>
-                            <li class="reviews__item"><a href="#" class="reviews__link"><img src="./img/review/user.png" alt="User photo" class="reviews__item-img"></a></li>
-                            <li class="reviews__item"><a href="#" class="reviews__link"><img src="./img/review/user.png" alt="User photo" class="reviews__item-img"></a></li>
+                            <li class="reviews__item reviews__item--active"><a href="#" class="reviews__link"><img src="./img/user1.png" alt="User photo" class="reviews__item-img"></a></li>
+                            <li class="reviews__item"><a href="#" class="reviews__link"><img src="./img/user2.png" alt="User photo" class="reviews__item-img"></a></li>
+                            <li class="reviews__item"><a href="#" class="reviews__link"><img src="./img/user3.png" alt="User photo" class="reviews__item-img"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -258,28 +266,41 @@
                         <div class="footer__info-location">
                             Москва, ул.Новый Арбат, д.31/12
                         </div>
-                        <a href="tel:+78009039090" class="footer__phone">8 800 903 90 90</a>
+                        <div class="footer__info-phone">
+                            <svg class="contacts__icon">
+                                <use xlink:href="./img/icons/sprite.svg#phone"></use>
+                            </svg>
+                            <a href="tel:+78009039090" class="footer__phone">8 800 903 90 90</a>
+                        </div>
                     </adress>
                     <nav class="footer__nav">
                         <ul class="footer__nav-list">
                             <li class="footer__nav-item">
                                 <a href="#" class="footer__nav-link">
-                                    <img class="footer__nav-img" src="./img/icons/vk.png" alt="vk">
+                                    <svg class="footer__nav-icon footer__nav-icon--vk">
+                                        <use xlink:href="./img/icons/sprite.svg#vk"></use>
+                                    </svg>
                                 </a>
                             </li>
                             <li class="footer__nav-item">
                                 <a href="#" class="footer__nav-link">
-                                    <img class="footer__nav-img" src="./img/icons/fb.png" alt="vk">
+                                    <svg class="footer__nav-icon footer__nav-icon--fb">
+                                        <use xlink:href="./img/icons/sprite.svg#fb"></use>
+                                    </svg>
                                 </a>
                             </li>
                             <li class="footer__nav-item">
                                 <a href="#" class="footer__nav-link">
-                                    <img class="footer__nav-img" src="./img/icons/inst.png" alt="vk">
+                                    <svg class="footer__nav-icon footer__nav-icon--inst">
+                                        <use xlink:href="./img/icons/sprite.svg#inst"></use>
+                                    </svg>
                                 </a>
                             </li>
                             <li class="footer__nav-item">
                                 <a href="#" class="footer__nav-link">
-                                    <img class="footer__nav-img" src="./img/icons/tg.png" alt="vk">
+                                    <svg class="footer__nav-icon footer__nav-icon--tg">
+                                        <use xlink:href="./img/icons/sprite.svg#tg"></use>
+                                    </svg>
                                 </a>
                             </li>
                         </ul>

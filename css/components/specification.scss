@@ -1,7 +1,7 @@
 .specification {
     display: flex;
     
-    &-icon{
+    &__icon{
         width: rem(41px);
         height: rem(41px);
         margin-right: rem(10px);
@@ -9,5 +9,6 @@
     &-text{
         width: rem(114px);
     }
+
     
 }

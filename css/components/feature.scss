@@ -20,12 +20,13 @@
         }
     }
     &__icon{
-        width: rem(68px);
-        height: rem(68px);
+        width: rem(60px);
+        height: rem(60px);
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%,  -50%);
+        
     }
 
     &__title{

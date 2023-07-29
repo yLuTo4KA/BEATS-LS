@@ -149,6 +149,10 @@ ul {
   padding: 1.5625rem 0 1.5625rem 0; }
   .header .logo {
     margin-right: -1.875rem; }
+    .header .logo__icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      fill: #E01F3D; }
   .header .menu {
     font-family: "Alegreya Sans", sans-serif;
     font-weight: 400;
@@ -231,7 +235,7 @@ ul {
 
 .specification {
   display: flex; }
-  .specification-icon {
+  .specification__icon {
     width: 2.5625rem;
     height: 2.5625rem;
     margin-right: 0.625rem; }
@@ -320,8 +324,8 @@ ul {
         margin-bottom: 0;
         margin-right: 1.25rem; } }
   .feature__icon {
-    width: 4.25rem;
-    height: 4.25rem;
+    width: 3.75rem;
+    height: 3.75rem;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -513,7 +517,7 @@ ul {
 .form__container {
   position: relative; }
   .form__container::before {
-    content: url("../img/icons/pentagon.png");
+    content: url("../img/icons/decoration/pentagon.svg");
     position: absolute;
     top: -1.5625rem;
     right: 0; }
@@ -615,8 +619,19 @@ ul {
     .footer__info-location {
       font-size: 1.285rem; } }
 
+    .footer__info-phone {
+      display: inline-flex;
+      align-items: center;
+      transition: color .2s, text-decoration .2s, fill .2s; }
+      .footer__info-phone:hover {
+        color: #E01F3D;
+        text-decoration: underline;
+        fill: #E01F3D; }
+    .footer__info .contacts__icon {
+      width: 0.875rem;
+      height: 0.875rem;
+      margin-right: 0.3125rem; }
   .footer__phone {
-    transition: color .2s, text-decoration .2s;
     position: relative; }
     @media screen and (max-width: 768px) {
       .footer__phone {
@@ -625,14 +640,6 @@ ul {
     .footer__phone {
       font-size: 1.142rem; } }
 
-    .footer__phone:before {
-      content: url(../img/phone.png);
-      display: inline-flex;
-      left: -1.375rem;
-      margin-right: 0.3125rem; }
-    .footer__phone:hover {
-      color: #E01F3D;
-      text-decoration: underline; }
   .footer__nav-list {
     display: flex; }
   .footer__nav-item {
@@ -645,14 +652,15 @@ ul {
   .footer__nav-link {
     width: 100%;
     height: 100%; }
-  .footer__nav-img {
-    display: block;
-    border-radius: 50%;
-    width: 100%;
-    height: 100%; }
+  .footer__nav-icon {
+    width: 30px;
+    height: 30px;
+    fill: #B3B3B3; }
+    .footer__nav-icon:hover {
+      fill: black; }
 
 .map {
-  content: url("../img/icons/map.png");
+  content: url("../img/map.png");
   width: 100%;
   height: 652px; }
   .map__section {
@@ -675,6 +683,9 @@ ul {
   top: 20%;
   right: 3%;
   z-index: 999; }
+  @media screen and (max-width: 768px) {
+    .fixed-menu {
+      display: none; } }
   .fixed-menu__item {
     margin-bottom: 0.3125rem;
     opacity: 60%; }

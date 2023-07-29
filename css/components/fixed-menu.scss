@@ -3,6 +3,9 @@
     top: 20%;
     right: 3%;
     z-index: 999;
+    @include tablets{
+        display: none;
+    }
 
     &__item{
         margin-bottom: rem(5px);
