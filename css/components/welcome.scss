@@ -7,8 +7,8 @@
     }
   
     &__text-section {
-        width: 35%;
-        margin-bottom: rem(80px);
+        width: 45%;
+        margin-bottom: 1rem;
         @include tablets{
             width: 100%;
             flex: 1;

@@ -249,8 +249,8 @@ ul {
     .welcome {
       background: none; } }
   .welcome__text-section {
-    width: 35%;
-    margin-bottom: 5rem; }
+    width: 45%;
+    margin-bottom: 1rem; }
     @media screen and (max-width: 768px) {
       .welcome__text-section {
         width: 100%;
