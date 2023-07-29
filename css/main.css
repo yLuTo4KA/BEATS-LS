@@ -520,7 +520,7 @@ ul {
     content: url("../img/icons/decoration/pentagon.svg");
     position: absolute;
     top: -1.5625rem;
-    right: 0; }
+    right: 5%; }
 
 .form {
   display: flex; }
