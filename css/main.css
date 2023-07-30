@@ -490,7 +490,7 @@ ul {
   .radio--checkbox .radio__visible {
     border-radius: 0.3125rem; }
     .radio--checkbox .radio__visible::before {
-      background: url("../img/icons/tick.png") center center no-repeat; }
+      background: url("../img/icons/decoration/tick.svg") center center no-repeat; }
   .radio__elem {
     display: none; }
     .radio__elem:checked ~ .radio__visible::before {
