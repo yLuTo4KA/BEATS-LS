@@ -2,6 +2,13 @@
 .welcome {
     padding-top: rem(62px);
     background: url(../img/headphones_white.png) right center / 50% auto no-repeat;
+    align-self: center;
+    &__container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
     @include tablets{
         background: none;
     }

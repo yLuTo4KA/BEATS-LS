@@ -93,7 +93,9 @@ ul {
   margin-bottom: 6.25rem;
   min-height: 100vh; }
   .section--hero {
-    position: relative; }
+    position: relative;
+    display: flex;
+    flex-direction: column; }
     .section--hero::before {
       content: '';
       width: 2.895rem;
@@ -147,6 +149,8 @@ ul {
   align-items: center;
   font-size: 1.125rem;
   padding: 1.5625rem 0 1.5625rem 0; }
+  .header__container {
+    align-self: flex-start; }
   .header .logo {
     margin-right: -1.875rem; }
     .header .logo__icon {
@@ -244,7 +248,13 @@ ul {
 
 .welcome {
   padding-top: 3.875rem;
-  background: url(../img/headphones_white.png) right center/50% auto no-repeat; }
+  background: url(../img/headphones_white.png) right center/50% auto no-repeat;
+  align-self: center; }
+  .welcome__container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
   @media screen and (max-width: 768px) {
     .welcome {
       background: none; } }

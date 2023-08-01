@@ -4,7 +4,9 @@
     align-items: center;
     font-size: rem(18px);
     padding: rem(25px) 0 rem(25px) 0;
-
+    &__container{
+        align-self: flex-start;
+    }
     .logo {
         margin-right: rem(-30px);
         &__icon{
