@@ -77,6 +77,7 @@
         border-radius: rem(5px);
         display: none;
         transition: background .3s;
+        z-index: 5;
         &:hover{
             background: $red;
             &::after, &::before{
