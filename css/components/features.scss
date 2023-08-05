@@ -1,5 +1,14 @@
 @import "feature.scss";
-
+.features__section{
+    position: relative;
+    &::before{
+        content: url('../img/icons/decoration/tringle.svg');
+        position: absolute;
+        bottom: rem(-25px);
+        left: 5%;
+        z-index: 9999;
+    }
+}
 
 .features {
     display: flex;

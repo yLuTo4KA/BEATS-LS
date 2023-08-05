@@ -1,5 +1,5 @@
 @import "radio.scss";
-.form__container{
+.form__section{
     position: relative;
     &::before{
         content: url('../img/icons/decoration/pentagon.svg');
@@ -9,6 +9,11 @@
 
     }
 }
+.form__container{
+    position: relative;
+    
+}
+
 .form{
     display: flex;
     @include tablets{

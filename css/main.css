@@ -361,6 +361,15 @@ ul {
         padding: 0;
         font-size: 1.142rem; } }
 
+.features__section {
+  position: relative; }
+  .features__section::before {
+    content: url("../img/icons/decoration/tringle.svg");
+    position: absolute;
+    bottom: -1.5625rem;
+    left: 5%;
+    z-index: 9999; }
+
 .features {
   display: flex; }
   @media screen and (max-width: 480px) {
@@ -532,13 +541,16 @@ ul {
       left: 50%;
       transform: translate(-50%, -50%); }
 
-.form__container {
+.form__section {
   position: relative; }
-  .form__container::before {
+  .form__section::before {
     content: url("../img/icons/decoration/pentagon.svg");
     position: absolute;
     top: -1.5625rem;
     right: 5%; }
+
+.form__container {
+  position: relative; }
 
 .form {
   display: flex; }
@@ -696,6 +708,14 @@ ul {
     .map {
       height: 482px; } }
 
+.slider__section {
+  position: relative; }
+  .slider__section::before {
+    content: url("../img/icons/decoration/rect.svg");
+    position: absolute;
+    bottom: -1.5625rem;
+    right: 5%; }
+
 .arrow {
   width: 0.84375rem;
   height: 1.6875rem;
@@ -760,7 +780,7 @@ ul {
       flex-direction: column; }
   .slider__hide-info {
     box-sizing: border-box;
-    margin-bottom: 2.1875rem;
+    margin-bottom: 0.625rem;
     position: relative; }
     @media screen and (max-width: 768px) {
       .slider__hide-info {
@@ -790,7 +810,8 @@ ul {
     font-size: 2.25rem;
     font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 1.5rem; }
+    margin-bottom: 1.5rem;
+    line-height: 1.3; }
   .slider__main-info {
     padding: 0 3.125rem 0 0; }
     @media screen and (max-width: 768px) {
@@ -801,11 +822,11 @@ ul {
         align-items: center; } }
   .slider__desc {
     color: #666;
-    margin-bottom: 1.5rem; }
+    margin-bottom: 0.625rem; }
   .slider__main-characters-list {
     color: #666;
     display: flex;
-    margin-bottom: 1.5rem; }
+    margin-bottom: 0.9375rem; }
     .slider__main-characters-list .main-characters-item {
       margin-right: 5.3125rem; }
       .slider__main-characters-list .main-characters-item:last-child {
