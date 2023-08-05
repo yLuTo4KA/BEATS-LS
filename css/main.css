@@ -380,7 +380,7 @@ ul {
     padding: 0 3%;
     position: relative; }
     .features__item::after {
-      content: url("../img/icons/separator.png");
+      content: url("../img/icons/decoration/separator.svg");
       position: absolute;
       top: 3.4375rem;
       right: 0;
