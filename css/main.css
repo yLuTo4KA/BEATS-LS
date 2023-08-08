@@ -922,8 +922,7 @@ ul {
           align-items: center;
           justify-content: center; } }
   .team__info {
-    display: none;
-    opacity: 0; }
+    display: none; }
     @media screen and (max-width: 768px) {
       .team__info {
         margin-bottom: 0.625rem; } }

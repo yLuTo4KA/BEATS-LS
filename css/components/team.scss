@@ -85,7 +85,7 @@
     }
     &__info{
         display: none;
-        opacity: 0;
+        
         @include tablets{
             margin-bottom: rem(10px);
         }

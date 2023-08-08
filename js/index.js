@@ -23,5 +23,15 @@ menuOpen.addEventListener('click', function(e){
 
 $('.team__name').on('click', function(e){
     e.preventDefault();
+    $('.team__content').not($(this).parent()).removeClass('team__content--active');
     $(e.target).parent().toggleClass('team__content--active');
+
+
+    // $('.team__info').not($(this).next()).slideUp(1000);
+    // $(this).next().slideToggle(1000);
+    // console.log($(this).next())
 });
+
+//// slider 
+
+
