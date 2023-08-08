@@ -13,10 +13,15 @@ closeMenuButton.addEventListener('click', function(e){
 menuOpen.addEventListener('click', function(e){
     const targets = e.target.classList
     if(!targets.contains('menu__open-list') && !targets.contains('menu__open-item') && !targets.contains('menu__open-link')){
-        console.log(e.target);
         menuOpen.style.display = 'none';
     }
 })
 
 
+////// accardeon
 
+
+$('.team__name').on('click', function(e){
+    e.preventDefault();
+    $(e.target).parent().toggleClass('team__content--active');
+});
