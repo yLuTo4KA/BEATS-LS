@@ -747,7 +747,7 @@ ul {
         display: none; } }
   @media screen and (min-width: 769px) {
     .slider__btn--tablets {
-      display: none; } }
+      display: none !important; } }
   .slider__product {
     display: flex;
     align-items: center; }
