@@ -404,11 +404,16 @@ ul {
   flex-direction: column;
   position: relative; }
   .reviews .review {
-    display: flex;
     background: #F8FAF9;
     padding: 2.625rem;
     margin-bottom: 0.625rem;
     position: relative; }
+    .reviews .review--1 {
+      display: flex; }
+    .reviews .review--2 {
+      display: none; }
+    .reviews .review--3 {
+      display: none; }
     @media screen and (max-width: 768px) {
       .reviews .review {
         flex-direction: column;
