@@ -51,24 +51,32 @@ $(document).ready(function(){
 
 ////// reviews
 
-$('.reviews__link').on('click', function(e){
-    e.preventDefault();
-    
-    $(this).parent().addClass('reviews__item--active');
-    $('.reviews__item').not($(this).parent()).removeClass('reviews__item--active');
-    if(this.id == 1){
-        $('.review--1').css('display', 'flex');
-        $('.review--2').css('display', 'none');
-        $('.review--3').css('display', 'none');   
-    }else if(this.id == 2){
-        $('.review--2').css('display', 'flex');
-        $('.review--1').css('display', 'none');
-        $('.review--3').css('display', 'none');
-    }else if(this.id == 3){
-        $('.review--3').css('display', 'flex');
-        $('.review--1').css('display', 'none');
-        $('.review--2').css('display', 'none');
-    };
 
-    
+let slideIndex = 1;
+
+function showSlide(index) {
+    $(`.review--${index}`).css('display', 'flex');
+    $('.reviews__item').removeClass('reviews__item--active');
+    $(`.reviews__link#${index}`).parent().addClass('reviews__item--active');
+}
+
+function hideAllSlides() {
+    $('.review--1, .review--2, .review--3').css('display', 'none');
+}
+
+$('.reviews__link').on('click', function(e) {
+    e.preventDefault();
+
+    hideAllSlides();
+    const id = parseInt(this.id);
+    slideIndex = id;
+    showSlide(id);
 });
+
+function nextSlide() {
+    hideAllSlides();
+    slideIndex = (slideIndex % 3) + 1;
+    showSlide(slideIndex);
+}
+
+setInterval(nextSlide, 3000);
