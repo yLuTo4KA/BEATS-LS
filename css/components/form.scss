@@ -57,7 +57,10 @@
         padding: rem(18px) rem(10px);
         border: rem(3px) solid transparent;
         border-radius: rem(5px);
-
+        &--error{
+            border-color: orange;
+            
+        }
         &--textarea{
             height: rem(120px);
             resize: none;

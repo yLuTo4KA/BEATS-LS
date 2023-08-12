@@ -593,6 +593,8 @@ ul {
     padding: 1.125rem 0.625rem;
     border: 0.1875rem solid transparent;
     border-radius: 0.3125rem; }
+    .form__input--error {
+      border-color: orange; }
     .form__input--textarea {
       height: 7.5rem;
       resize: none;
@@ -1047,6 +1049,8 @@ ul {
     align-items: center; }
   .modal__content {
     margin-bottom: 20px; }
+    .modal__content--error {
+      color: #E01F3D; }
   .modal__button-container {
     display: flex;
     justify-content: center; }

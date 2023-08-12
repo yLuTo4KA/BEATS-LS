@@ -14,6 +14,10 @@
     }
     &__content{
         margin-bottom: 20px;
+        &--error{
+            
+            color: $red;
+        }
     }
     &__button-container{
         display: flex;
