@@ -1033,3 +1033,20 @@ ul {
   opacity: 70%; }
   .close:hover {
     fill: #E01F3D; }
+
+.modal {
+  display: none; }
+  .modal.fancybox-content {
+    padding: 0 !important; }
+  .modal.fancybox-button {
+    display: none; }
+  .modal__container {
+    padding: 35px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .modal__content {
+    margin-bottom: 20px; }
+  .modal__button-container {
+    display: flex;
+    justify-content: center; }

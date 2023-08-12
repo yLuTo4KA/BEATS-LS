@@ -1,0 +1,22 @@
+.modal{
+    display: none;
+    &.fancybox-content{
+        padding: 0 !important;
+    }
+    &.fancybox-button{
+        display: none;
+    }
+    &__container{
+        padding: 35px 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__content{
+        margin-bottom: 20px;
+    }
+    &__button-container{
+        display: flex;
+        justify-content: center;
+    }
+}

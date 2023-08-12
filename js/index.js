@@ -80,3 +80,43 @@ function nextSlide() {
 }
 
 setInterval(nextSlide, 3000);
+
+
+
+
+////// form 
+
+
+const myForm = document.querySelector('.form__order');
+const sendForm = $('#buy');
+
+sendForm.on('click', function(e){
+    e.preventDefault();
+    
+    const form = $('.form');
+    const name = form.find("[name='name']");
+    const phone = form.find("[name='phone']");
+    const comment = form.find("[name='comment']");
+    const to = form.find("[name='to']");
+    console.log(name.val())
+    $.ajax({
+        url: "https://webdev-api.loftschool.com/sendmail",
+        method: "post",
+        data: {
+            name: name.val(),
+            phone: phone.val(),
+            comment: comment.val(),
+            to: to.val(),
+        }
+    })
+
+
+    // $.fancybox.open({
+    //     src: "#modal",
+    //     type: "inline"
+    // })
+})
+$('.app-submit-btn').on('click', function(e){
+    e.preventDefault();
+    $.fancybox.close();
+})

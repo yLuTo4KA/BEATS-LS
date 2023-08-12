@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -545,15 +546,16 @@
                     <h1 class="section__title">Закажите доставку</h1>
                 </div>
                 <form action="" class="form form__order">
+                    <input type="hidden" name="to" value="kipsa25@mail.ru">
                     <div class="form__col">
                         <div class="form__row">
                             <label for="" class="form__block">
                                 <div class="form__title">Имя</div>
-                                <input type="text" class="form__input">
+                                <input type="text" class="form__input" name="name" required>
                             </label>
                             <label for="" class="form__block">
                                 <div class="form__title">Телефон</div>
-                                <input type="text" class="form__input">
+                                <input type="text" class="form__input" name="phone" required>
                             </label>
                         </div>
                         <div class="form__row">
@@ -586,7 +588,7 @@
                         <div class="form__row">
                             <label for="" class="form__block">
                                 <div class="form__title">Комментарий</div>
-                                <textarea name="" id="" class="form__input form__input--textarea"></textarea>
+                                <textarea class="form__input form__input--textarea" name="comment" required></textarea>
                             </label>
                         </div>
                         <div class="form__controls">
@@ -609,7 +611,7 @@
                             </label>
                         </div>
                         <div class="form__btns">
-                            <button type="submit" class="btn">Заказать</button>
+                            <button type="submit" class="btn" id="buy">Заказать</button>
                             <button type="reset" class="btn btn--bg--transperent">Очистить</button>
                         </div>
                         
@@ -700,8 +702,19 @@
             <li class="menu__open-item"><a href="#" class="menu__open-link">Контакты</a></li>
         </ul>
     </div>
+    <div class="modal" id="modal">
+        <div class="modal__container">
+            <div class="modal__content">
+                Cообщение отправлено
+            </div>
+            <div class="modal__button-container">
+                <a href="#" class="btn app-submit-btn">Закрыть</a>
+            </div>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./js/index.js"></script>
 </body>
 
