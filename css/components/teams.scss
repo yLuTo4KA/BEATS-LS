@@ -3,6 +3,16 @@
     display: flex;
     align-items: flex-start;
     overflow: hidden;
+    &--desktop{
+        @include tablets{
+            display: none;
+        }
+    }
+    &--tablets{
+        @include desktop{
+            display: none;
+        }
+    }
     @include tablets{
         flex-direction: column;
         align-items: center;
@@ -17,5 +27,8 @@
     }
     @include tablets{
         margin-right: 0;
+        margin-bottom: rem(20px);
     }
+
+    
 }

@@ -20,16 +20,43 @@ menuOpen.addEventListener('click', function(e){
 
 ////// accardeon
 
+const openItem = item => {
+    const container = item.closest('.teams__item');
+    const contentBlock = container.find('.team__content');
+    const nameBlock = container.find('.team__name');
+    const textBlock = contentBlock.find('.team__info');
+    const reqHeight = textBlock.height();
+
+    container.addClass('active')
+    nameBlock.addClass('team__name--active')
+    contentBlock.height(reqHeight);
+}
+
+const closeEveryItem = container => {
+    const items = $(container).find('.team__content');
+    const itemContainer = container.find('.teams__item');
+    const nameContainer = container.find('.team__name');
+
+    nameContainer.removeClass('team__name--active');
+    itemContainer.removeClass('active');
+    items.height(0);
+}
+
 
 $('.team__name').on('click', function(e){
     e.preventDefault();
-    $('.team__content').not($(this).parent()).removeClass('team__content--active');
-    $(e.target).parent().toggleClass('team__content--active');
+    
+    const $this = $(e.currentTarget);
+    const container = $this.closest('.teams__list')
+    const elemContainer = container.find('.teams__item');
 
 
-    // $('.team__info').not($(this).next()).slideUp(1000);
-    // $(this).next().slideToggle(1000);
-    // console.log($(this).next())
+    if(elemContainer.hasClass('active')){
+        closeEveryItem(container)
+    }else{
+        closeEveryItem(container)
+        openItem($this)
+    }
 });
 
 //// slider 
@@ -51,35 +78,23 @@ $(document).ready(function(){
 
 ////// reviews
 
-
-let slideIndex = 1;
-
-function showSlide(index) {
-    $(`.review--${index}`).css('display', 'flex');
-    $('.reviews__item').removeClass('reviews__item--active');
-    $(`.reviews__link#${index}`).parent().addClass('reviews__item--active');
+const findBlockAlias = (alias) =>{
+    return $('.review').filter((ndx, item) => {
+        return $(item).attr('data-link') === alias;
+    });
 }
 
-function hideAllSlides() {
-    $('.review--1, .review--2, .review--3').css('display', 'none');
-}
-
-$('.reviews__link').on('click', function(e) {
+$('.reviews__link').on('click', function(e){
     e.preventDefault();
 
-    hideAllSlides();
-    const id = parseInt(this.id);
-    slideIndex = id;
-    showSlide(id);
-});
-
-function nextSlide() {
-    hideAllSlides();
-    slideIndex = (slideIndex % 3) + 1;
-    showSlide(slideIndex);
-}
-
-setInterval(nextSlide, 3000);
+    const $this = $(e.currentTarget);
+    const target = $this.attr('data-open');
+    const itemToShow = findBlockAlias(target);
+    const curItem = $this.closest('.reviews__item');
+    
+    itemToShow.addClass('review--active').siblings().removeClass('review--active');
+    curItem.addClass('reviews__item--active').siblings().removeClass('reviews__item--active');
+})
 
 
 

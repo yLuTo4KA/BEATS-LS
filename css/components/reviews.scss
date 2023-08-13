@@ -10,14 +10,9 @@
         padding: rem(42px);
         margin-bottom: rem(10px);
         position: relative;
-        &--1{
+        display: none;
+        &--active{
             display: flex;
-        }
-        &--2{
-            display: none;
-        }
-        &--3{
-            display: none;
         }
         @include tablets{
             flex-direction: column;
