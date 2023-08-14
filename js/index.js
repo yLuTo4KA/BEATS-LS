@@ -27,6 +27,10 @@ const openItem = item => {
     const textBlock = contentBlock.find('.team__info');
     const reqHeight = textBlock.height();
 
+    // color
+    
+    
+
     container.addClass('active')
     nameBlock.addClass('team__name--active')
     contentBlock.height(reqHeight);
@@ -159,3 +163,28 @@ $('.app-submit-btn').on('click', function(e){
     e.preventDefault();
     $.fancybox.close();
 })
+
+
+///// color accardeon
+
+$('.color__button-open').on('click', function(e){
+   e.preventDefault();
+
+   const $this = $(e.currentTarget);
+   const container = $this.closest('.color__list');
+   const elemContainer = container.find('.color__item');
+   const $thisContainer = $this.closest('.color__item');
+   const content = container.find('.color__content');
+   const $thisContent = $thisContainer.find('.color__content');
+
+   
+   
+   if(elemContainer.hasClass('active')){
+    content.width(0);
+   elemContainer.removeClass('active')
+   }else{
+    $thisContainer.addClass('active');
+    $thisContent.width($('.color__text').width());
+   }
+   
+});
