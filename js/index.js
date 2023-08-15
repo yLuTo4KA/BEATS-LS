@@ -1,3 +1,5 @@
+const wrapper = $('.wrapper');
+const section = $('.section');
 const openMenuButton = document.querySelector('.nav__hide')
 const closeMenuButton = document.querySelector('.menu__close');
 const menuOpen = document.querySelector('.menu__open');
@@ -181,10 +183,44 @@ $('.color__button-open').on('click', function(e){
    
    if(elemContainer.hasClass('active')){
     content.width(0);
-   elemContainer.removeClass('active')
+    elemContainer.removeClass('active')
    }else{
     $thisContainer.addClass('active');
     $thisContent.width($('.color__text').width());
    }
    
+});
+
+
+/// onePageScroll 
+
+
+var currentSection = 0;
+wrapper.on('wheel', function(e){
+    e.preventDefault();
+
+    let thisSection = section[currentSection]
+    var delta = event.deltaY;
+    
+        if(delta > 0){
+            if(currentSection < (section.length - 1)){
+                currentSection++;
+            }
+        }else if(delta < 0){
+            if(currentSection >= 1){
+                currentSection--;
+            }
+            
+        }
+
+    const fixedMenuItem = $('.fixed-menu__item');
+    const $thisFixedMenuItem = fixedMenuItem[currentSection]
+
+    $('.fixed-menu__item').removeClass('fixed-menu__item--active')
+    section.removeClass('active');
+    $(thisSection).addClass('active');
+    $($thisFixedMenuItem).addClass('fixed-menu__item--active')
+    
+    var translateY = -currentSection * 100;
+    wrapper[0].style.transform = `translateY(${0, translateY}vh)`;
 });

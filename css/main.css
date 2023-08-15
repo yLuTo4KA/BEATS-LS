@@ -31,7 +31,8 @@ body {
   width: 100%;
   min-width: 0rem;
   min-height: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+  transition: transform .5s; }
 
 h1,
 h2,
@@ -100,7 +101,7 @@ ul {
       font-size: 1.357rem; } }
 
 .section {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center; }
   .section--hero {
@@ -986,6 +987,7 @@ ul {
     transition: width .5s; }
   .color__text {
     width: 34.375rem;
+    overflow: hidden;
     padding: 30px 100px 30px 30px; }
 
 .fixed-menu {
