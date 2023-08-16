@@ -1,7 +1,8 @@
 .color{
-    min-height: rem(652px);
+    height: 100vh;
+    width: 100vw;
     color: #fff;
-    background: url('../img/color-menu.png') center center no-repeat;
+    background: url('../img/color-menu.png') center top / 100% 100% no-repeat;
     position: relative;
 
     &__title{
@@ -27,7 +28,7 @@
         
         writing-mode: vertical-lr;
         transform: rotate(180deg);
-        height: rem(652px);
+        height: 100%;
         padding: rem(30px);
         font-family: $nav-font;
         font-size: 36px;
@@ -53,7 +54,7 @@
         transition: width .5s;
     }
     &__text{
-        width: rem(550px);
+        width: rem(800px);
         overflow: hidden;
         padding: 30px 100px 30px 30px;
         

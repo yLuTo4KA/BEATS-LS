@@ -945,9 +945,10 @@ ul {
       margin-bottom: 1.25rem; } }
 
 .color {
-  min-height: 40.75rem;
+  height: 100vh;
+  width: 100vw;
   color: #fff;
-  background: url("../img/color-menu.png") center center no-repeat;
+  background: url("../img/color-menu.png") center top/100% 100% no-repeat;
   position: relative; }
   .color__title {
     text-transform: uppercase;
@@ -967,7 +968,7 @@ ul {
   .color__button-open {
     writing-mode: vertical-lr;
     transform: rotate(180deg);
-    height: 40.75rem;
+    height: 100%;
     padding: 1.875rem;
     font-family: "Alegreya Sans", sans-serif;
     font-size: 36px;
@@ -986,7 +987,7 @@ ul {
     line-height: 1.6;
     transition: width .5s; }
   .color__text {
-    width: 34.375rem;
+    width: 50rem;
     overflow: hidden;
     padding: 30px 100px 30px 30px; }
 
