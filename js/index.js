@@ -233,3 +233,129 @@ $('.fixed-menu__link').on('click', function (e) {
     currentSection = target;
     sectionChange();
 })
+
+
+////// player 
+
+let player;
+const playerContainer = $('.player');
+const volumeButton = $('.player__volume-button');
+let eventsInit = () => {
+    $('.player__start').on('click', function (e) {
+        e.preventDefault();
+        const btn = $(e.currentTarget);
+
+        if (playerContainer.hasClass('paused')) {
+            player.pauseVideo();
+        } else {
+            player.playVideo();
+        }
+    });
+    $('.player__playback').on('click', function (e) {
+        e.preventDefault();
+        const bar = $(e.currentTarget);
+        const clickedPos = e.originalEvent.layerX;
+        const newButtonPos = (clickedPos / bar.width()) * 100;
+        const newPlaybackPosSec = (player.getDuration() / 100) * newButtonPos;
+
+        console.log(clickedPos)
+        player.seekTo(newPlaybackPosSec)
+    });
+    $('.player__volume-button--off').on('click', function (e) {
+        e.preventDefault();
+
+        const muteButton = $(e.currentTarget);
+        muteButton.toggleClass('active');
+        if (muteButton.hasClass('active')) {
+            player.mute();
+        } else {
+            player.unMute();
+        }
+        console.log(volume);
+    });
+    $('.player__volume').on('click', function (e) {
+        e.preventDefault();
+
+        const volumeBar = $(e.currentTarget);
+        const clickedVolPos = e.originalEvent.layerX;
+
+        volumeButton.css({
+            left: `${clickedVolPos}%`
+        })
+        player.setVolume(clickedVolPos);
+
+
+    });
+    $('.player__splash').on('click', function(e){
+        e.preventDefault();
+
+        player.playVideo();
+    })
+
+}
+const onPlayerReady = () => {
+    let interval;
+    if (typeof interval != "undefiend") {
+        clearInterval(interval);
+    }
+    const durationSec = player.getDuration();
+
+
+    interval = setInterval(() => {
+        const completedSec = player.getCurrentTime();
+        const completedPercent = (completedSec / durationSec) * 100;
+        $('.player__playback-button').css({
+            left: `${completedPercent}%`
+        });
+
+
+    })
+};
+
+const onPlayerStateChange = event => {
+    // -1 – воспроизведение видео не началось
+    // 0 – воспроизведение видео завершено
+    // 1 – воспроизведение
+    // 2 – пауза
+    // 3 – буферизация
+    // 5 – видео находится в очереди
+    switch(event.data){
+        case 1: 
+            playerContainer.addClass('active');
+            playerContainer.addClass('paused');
+            break;
+        case 2:
+            playerContainer.removeClass('active');
+            playerContainer.removeClass('paused');
+            break;
+        
+    }
+    volume = player.getVolume();
+
+    volumeButton.css({
+        left: `${volume}%`
+    })
+
+    
+}
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('yt-player', {
+        height: '500',
+        width: '864',
+        videoId: 'YYRxpjXPu3Q',
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        },
+        playerVars: {
+            controls: 0,
+            disablekb: 0,
+            autoplay: 0,
+            modestbranding: 0,
+            rel: 0,
+            showinfo: 0,
+        }
+    });
+};
+eventsInit();
+
