@@ -3,6 +3,9 @@ const section = $('.section');
 const openMenuButton = document.querySelector('.nav__hide')
 const closeMenuButton = document.querySelector('.menu__close');
 const menuOpen = document.querySelector('.menu__open');
+
+var md = new MobileDetect(window.navigator.userAgent);
+
 openMenuButton.addEventListener('click', function (e) {
     e.preventDefault();
     menuOpen.style.display = 'flex';
@@ -208,6 +211,31 @@ let sectionChange = function () {
 
     var translateY = -currentSection * 100;
     wrapper[0].style.transform = `translateY(${0, translateY}vh)`;
+    
+}
+if(!md.phone() == null){
+    $(function() {      
+        //Enable swiping...
+        wrapper.swipe( {
+          //Generic swipe handler for all directions
+          swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+            
+            if(direction == 'up'){
+                if(currentSection < (section.length -1)){
+                    currentSection++;
+                    
+                }
+            }else if(direction == 'down'){
+                if(currentSection >= 1){
+                    currentSection--;
+                }
+            }
+            sectionChange();
+          },
+          //Default is 75px, set to 0 for demo so any distance triggers swipe
+           
+        });
+      });
 }
 var currentSection = 0;
 wrapper.on('wheel', function (e) {
@@ -224,6 +252,7 @@ wrapper.on('wheel', function (e) {
         }
 
     }
+    
     sectionChange();
 
 });
@@ -233,6 +262,9 @@ $('.fixed-menu__link').on('click', function (e) {
     currentSection = target;
     sectionChange();
 })
+
+
+// MOBILE SCROLL //
 
 
 ////// player 
