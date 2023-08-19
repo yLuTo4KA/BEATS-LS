@@ -196,7 +196,7 @@ $('.color__button-open').on('click', function (e) {
 
 
 /// onePageScroll 
-
+var currentSection = 0;
 let sectionChange = function () {
     let thisSection = section[currentSection]
 
@@ -219,6 +219,9 @@ if(!md.phone() === null){
     $(function() {      
         wrapper.swipe( {
           swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+            wrapper.on('wheel', function (e) {
+                e.preventDefault();
+              });
             if(direction == 'up'){
                 if(currentSection < (section.length -1)){
                     currentSection++;
@@ -234,27 +237,27 @@ if(!md.phone() === null){
         });
       });
 }else{
-    console.log('null')
-}
-var currentSection = 0;
-wrapper.on('wheel', function (e) {
-    e.preventDefault();
-
-    var delta = event.deltaY;
-    if (delta > 0) {
-        if (currentSection < (section.length - 1)) {
-            currentSection++;
-        }
-    } else if (delta < 0) {
-        if (currentSection >= 1) {
-            currentSection--;
-        }
-
-    }
+    wrapper.on('wheel', function (e) {
+        e.preventDefault();
     
-    sectionChange();
+        var delta = event.deltaY;
+        if (delta > 0) {
+            if (currentSection < (section.length - 1)) {
+                currentSection++;
+            }
+        } else if (delta < 0) {
+            if (currentSection >= 1) {
+                currentSection--;
+            }
+    
+        }
+        
+        sectionChange();
+    
+    });
+}
 
-});
+
 $('.fixed-menu__link').on('click', function (e) {
     const $this = $(e.currentTarget);
     const target = $this.attr('data-section');
