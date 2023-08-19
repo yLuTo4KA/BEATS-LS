@@ -212,14 +212,12 @@ let sectionChange = function () {
     var translateY = -currentSection * 100;
     wrapper[0].style.transform = `translateY(${0, translateY}vh)`;
     
-}
-if(!md.phone() == null){
+};
+/// Mobile scroll /// 
+if(md.phone() != null){  
     $(function() {      
-        //Enable swiping...
         wrapper.swipe( {
-          //Generic swipe handler for all directions
           swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-            
             if(direction == 'up'){
                 if(currentSection < (section.length -1)){
                     currentSection++;
@@ -231,9 +229,7 @@ if(!md.phone() == null){
                 }
             }
             sectionChange();
-          },
-          //Default is 75px, set to 0 for demo so any distance triggers swipe
-           
+          }
         });
       });
 }
