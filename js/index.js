@@ -214,7 +214,8 @@ let sectionChange = function () {
     
 };
 /// Mobile scroll /// 
-if(md.phone() != null){  
+if(!md.phone() === null){  
+    console.log('not null')
     $(function() {      
         wrapper.swipe( {
           swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
@@ -232,6 +233,8 @@ if(md.phone() != null){
           }
         });
       });
+}else{
+    console.log('null')
 }
 var currentSection = 0;
 wrapper.on('wheel', function (e) {
