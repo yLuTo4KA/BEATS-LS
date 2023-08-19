@@ -695,14 +695,21 @@
                     </h2>
                 </div>
                 <div class="player__container">
-                    <div class="player">
+                    <div class="player active">
                         <div class="player__wrapper">
-                            <div class="player__elem" id="yt-player">
-
+                            <div class="player__elem">
+                                <video id="video-player">
+                                    <source src="./img/video.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
                             </div>
                             <div class="player__splash">
-                                <a href="#" class="player__start"><svg class="playback__start playback__start--big">
+                                <a href="#" class="player__start--splash"><svg
+                                        class="playback__start playback__start--big">
                                         <use xlink:href="./img/icons/sprite.svg#playback"></use>
+                                    </svg>
+                                    <svg class="playback__paused playback__paused--big">
+                                        <use xlink:href="./img/icons/sprite.svg#paused"></use>
                                     </svg></a>
 
                             </div>
@@ -718,6 +725,7 @@
                             </a>
                             <div class="player__playback">
                                 <a href="#" class="player__playback-button"></a>
+                                <div class="player__playback-indicator"></div>
                             </div>
                             <a href="#" class="player__volume-button--off">
                                 <svg class="player__volume-icon">
@@ -727,6 +735,7 @@
                             <div class="player__volume">
 
                                 <a href="#" class="player__volume-button"></a>
+                                <div class="player__volume-indicator"></div>
                             </div>
                         </div>
                     </div>
@@ -909,8 +918,10 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/mobile-detect@1.4.5/mobile-detect.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js" integrity="sha512-YYiD5ZhmJ0GCdJvx6Xe6HzHqHvMpJEPomXwPbsgcpMFPW+mQEeVBU6l9n+2Y+naq+CLbujk91vHyN18q6/RSYw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mobile-detect@1.4.5/mobile-detect.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"
+        integrity="sha512-YYiD5ZhmJ0GCdJvx6Xe6HzHqHvMpJEPomXwPbsgcpMFPW+mQEeVBU6l9n+2Y+naq+CLbujk91vHyN18q6/RSYw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript">
     </script>
     <script src="https://www.youtube.com/iframe_api"></script>

@@ -34,6 +34,14 @@ body {
   overflow: hidden;
   transition: transform .5s; }
 
+video {
+  width: 100%;
+  height: 100%; }
+
+iframe {
+  width: 100%;
+  height: 100%; }
+
 h1,
 h2,
 h3,
@@ -101,7 +109,7 @@ ul {
       font-size: 1.357rem; } }
 
 .section {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center; }
   .section--hero {
@@ -976,47 +984,11 @@ ul {
     overflow: hidden;
     padding: 30px 100px 30px 30px; }
 
-iframe {
-  width: 100%;
-  height: 100%; }
-
-.player__container {
-  display: flex;
-  justify-content: center;
-  height: 31.25rem; }
-  @media screen and (max-width: 768px) {
-    .player__container {
-      height: 25rem; } }
-  @media screen and (max-width: 480px) {
-    .player__container {
-      height: 18.75rem; } }
-
-.playback__start {
-  fill: white;
-  display: flex;
-  align-items: center;
-  width: 3.125rem;
-  height: 4.375rem;
-  transition: display .1s; }
-  .playback__start:hover {
-    fill: #E01F3D; }
-  .playback__start--mini {
-    width: 0.75rem;
-    height: 1.25rem; }
-
-.playback__paused {
-  fill: white;
-  display: none;
-  align-items: center;
-  width: 3.125rem;
-  height: 4.375rem;
-  transition: display .1s; }
-  .playback__paused:hover {
-    fill: #E01F3D; }
-  .playback__paused--mini {
-    width: 0.6875rem;
-    height: 1rem; }
-
+@keyframes plays {
+  from {
+    opacity: 100%; }
+  to {
+    opacity: 0%; } }
 .player {
   width: 80%;
   height: 100%;
@@ -1024,6 +996,10 @@ iframe {
   position: relative; }
   .player__wrapper {
     height: 100%; }
+  .player__elem {
+    height: 100%;
+    width: 100%;
+    background-color: #000; }
   .player__splash {
     position: absolute;
     display: flex;
@@ -1066,6 +1042,11 @@ iframe {
       left: 0; }
       .player__playback-button:hover {
         background-color: #E01F3D; }
+    .player__playback-indicator {
+      height: 100%;
+      width: 0;
+      background-color: #E01F3D;
+      position: absolute; }
   .player__volume-button--off {
     margin-right: 0.625rem; }
     .player__volume-button--off:hover .player__volume-icon {
@@ -1097,12 +1078,55 @@ iframe {
       left: 0; }
       .player__volume-button:hover {
         background-color: #E01F3D; }
+    .player__volume-indicator {
+      height: 100%;
+      width: 0;
+      background-color: #E01F3D;
+      position: absolute;
+      left: 0; }
   .player.paused .playback__start {
     display: none; }
   .player.paused .playback__paused {
-    display: flex; }
+    display: inline; }
   .player.paused .player__splash {
-    display: none; }
+    animation: plays 1s forwards; }
+
+.player__container {
+  display: flex;
+  justify-content: center;
+  height: 31.25rem; }
+  @media screen and (max-width: 768px) {
+    .player__container {
+      height: 25rem; } }
+  @media screen and (max-width: 480px) {
+    .player__container {
+      height: 18.75rem; } }
+
+.playback__start {
+  fill: white;
+  display: flex;
+  align-items: center;
+  width: 3.125rem;
+  height: 4.375rem;
+  transition: display .1s; }
+  .playback__start:hover {
+    fill: #E01F3D; }
+  .playback__start--mini {
+    width: 0.75rem;
+    height: 1.25rem; }
+
+.playback__paused {
+  fill: white;
+  display: none;
+  align-items: center;
+  width: 3.125rem;
+  height: 4.375rem;
+  transition: display .1s; }
+  .playback__paused:hover {
+    fill: #E01F3D; }
+  .playback__paused--mini {
+    width: 0.6875rem;
+    height: 1rem; }
 
 .fixed-menu {
   position: fixed;

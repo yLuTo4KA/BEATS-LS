@@ -211,50 +211,49 @@ let sectionChange = function () {
 
     var translateY = -currentSection * 100;
     wrapper[0].style.transform = `translateY(${0, translateY}vh)`;
-    
+
 };
 /// Mobile scroll /// 
 
-if(md.phone() == null){  
-    wrapper.on('wheel', function (e) {
-        e.preventDefault();
-    
-        var delta = event.deltaY;
-        if (delta > 0) {
-            if (currentSection < (section.length - 1)) {
-                currentSection++;
-            }
-        } else if (delta < 0) {
-            if (currentSection >= 1) {
-                currentSection--;
-            }
-    
+wrapper.on('wheel', function (e) {
+    e.preventDefault();
+
+    var delta = event.deltaY;
+    if (delta > 0) {
+        if (currentSection < (section.length - 1)) {
+            currentSection++;
         }
-        
-        sectionChange();
-    
-    });
-}else{
-    $(function() {      
-        wrapper.swipe( {
-          swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-            wrapper.on('wheel', function (e) {
-                e.preventDefault();
-              });
-            if(direction == 'up'){
-                if(currentSection < (section.length -1)){
-                    currentSection++;
-                    
+    } else if (delta < 0) {
+        if (currentSection >= 1) {
+            currentSection--;
+        }
+
+    }
+
+    sectionChange();
+
+});
+if (md.phone() != null) {
+    $(function () {
+        wrapper.swipe({
+            swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
+                wrapper.on('wheel', function (e) {
+                    e.preventDefault();
+                });
+                if (direction == 'up') {
+                    if (currentSection < (section.length - 1)) {
+                        currentSection++;
+
+                    }
+                } else if (direction == 'down') {
+                    if (currentSection >= 1) {
+                        currentSection--;
+                    }
                 }
-            }else if(direction == 'down'){
-                if(currentSection >= 1){
-                    currentSection--;
-                }
+                sectionChange();
             }
-            sectionChange();
-          }
         });
-      });
+    });
 }
 
 
@@ -266,141 +265,127 @@ $('.fixed-menu__link').on('click', function (e) {
 })
 
 
-// MOBILE SCROLL //
 
 
 ////// player 
 
-let player;
+const player = document.getElementById('video-player');
 const playerContainer = $('.player');
 const volumeButton = $('.player__volume-button');
-let eventsInit = () => {
-    $('.player__start').on('click', function (e) {
-        e.preventDefault();
-        const btn = $(e.currentTarget);
 
-        if (playerContainer.hasClass('paused')) {
-            player.pauseVideo();
-        } else {
-            player.playVideo();
-        }
-    });
-    $('.player__playback').on('click', function (e) {
-        e.preventDefault();
-        const bar = $(e.currentTarget);
-        const clickedPos = e.originalEvent.layerX;
-        const newButtonPos = (clickedPos / bar.width()) * 100;
-        const newPlaybackPosSec = (player.getDuration() / 100) * newButtonPos;
+volumeButton.css({
+    left: `${player.volume * 100}%`
+})
 
-        console.log(clickedPos)
-        player.seekTo(newPlaybackPosSec)
-    });
-    $('.player__volume-button--off').on('click', function (e) {
-        e.preventDefault();
-
-        const muteButton = $(e.currentTarget);
-        muteButton.toggleClass('active');
-        if (muteButton.hasClass('active')) {
-            player.mute();
-        } else {
-            player.unMute();
-        }
-        console.log(volume);
-    });
-    $('.player__volume').on('click', function (e) {
-        e.preventDefault();
-
-        const volumeBar = $(e.currentTarget);
-        const clickedVolPos = e.originalEvent.layerX;
-
-        volumeButton.css({
-            left: `${clickedVolPos}%`
+function volumeChangeIndicator(muted) { 
+    
+    if(!muted){
+        $('.player__volume-indicator').css({
+            width: `${player.volume * 100}%`
         })
-        player.setVolume(clickedVolPos);
+    }else{
+        $('.player__volume-indicator').css({
+            width: `${0}%`
+        })
+    }
+ }
+
+function playVideo() {
+    if (player.paused) {
+        playerContainer.addClass('paused');
+        playerContainer.removeClass('active');
+        player.play();
+    } else {
+        playerContainer.addClass('active');
+        playerContainer.removeClass('paused');
+        player.pause();
+    }
+};
 
 
-    });
-    $('.player__splash').on('click', function(e){
-        e.preventDefault();
+$('.player__start').on('click', function (e) {
+    e.preventDefault();
+    playVideo();
+});
+$('.player__splash').on('click', function (e) {
+    e.preventDefault();
+    playVideo();
+})
+$('.player__playback').on('click', function (e) {
+    e.preventDefault();
 
-        player.playVideo();
-    })
+    const bar = $(e.currentTarget);
+    const clickedPos = e.originalEvent.layerX;
+    const newBtnPos = (clickedPos / bar.width()) * 100;
+    const newPlaybackPos = (player.duration / 100) * newBtnPos;
+    
+    player.currentTime = newPlaybackPos;
+})
 
-}
-const onPlayerReady = () => {
+function onPlayerReady() {
     let interval;
-    if (typeof interval != "undefiend") {
+    if (typeof interval != "undefined") {
         clearInterval(interval);
     }
-    const durationSec = player.getDuration();
-
-
+    const durationSec = player.duration;
     interval = setInterval(() => {
-        const completedSec = player.getCurrentTime();
+        const completedSec = player.currentTime;
         const completedPercent = (completedSec / durationSec) * 100;
         $('.player__playback-button').css({
             left: `${completedPercent}%`
-        });
-
-
-    })
-};
-
-const onPlayerStateChange = event => {
-    // -1 – воспроизведение видео не началось
-    // 0 – воспроизведение видео завершено
-    // 1 – воспроизведение
-    // 2 – пауза
-    // 3 – буферизация
-    // 5 – видео находится в очереди
-    switch(event.data){
-        case 1: 
+        })
+        $('.player__playback-indicator').css({
+            width: `${completedPercent}%`
+        })
+        if (player.ended) {
             playerContainer.addClass('active');
-            playerContainer.addClass('paused');
-            break;
-        case 2:
-            playerContainer.removeClass('active');
             playerContainer.removeClass('paused');
-            break;
+            player.pause();
+        }
+        volumeChangeIndicator(player.muted)
+    })
+
+}
+$('.player__volume-button--off').on('click', function (e) { 
+    e.preventDefault();
+
+    const muteBtn = $(e.currentTarget);
+    muteBtn.toggleClass('active')
+    if(muteBtn.hasClass('active')){
+        player.muted = true;
+        volumeButton.css({
+            left: `0%`
+        })
+    }else{
+        player.muted = false;
+        volumeButton.css({
+            left: `${player.volume * 100}%`
+        })
         
     }
-    volume = player.getVolume();
+ });
+ 
+ $('.player__volume').on('click', function (e) {
+    e.preventDefault();
+
+    const volBar = $(e.currentTarget);
+    const clickedVolBarPos = e.originalEvent.layerX;
+    const clickedVolBarPosMs = clickedVolBarPos / 100
+    
 
     volumeButton.css({
-        left: `${volume}%`
+        left: `${clickedVolBarPos}%`
     })
+    player.volume = clickedVolBarPosMs;
 
-    
-}
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('yt-player', {
-        height: '500',
-        width: '864',
-        videoId: 'YYRxpjXPu3Q',
-        events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-        },
-        playerVars: {
-            controls: 0,
-            disablekb: 0,
-            autoplay: 0,
-            modestbranding: 0,
-            rel: 0,
-            showinfo: 0,
-        }
-    });
-};
-eventsInit();
+});
+onPlayerReady();
 
-
-
-/// map
 
 
 let myMap;
 
-function init(){
+function init() {
     myMap = new ymaps.Map('map', {
         center: [51.124295, 71.456133],
         zoom: 12,
@@ -412,7 +397,7 @@ function init(){
         [51.148425, 71.420914],
         [51.178351, 71.419548]
     ];
-    let myCollection = new ymaps.GeoObjectCollection({},{
+    let myCollection = new ymaps.GeoObjectCollection({}, {
         draggable: false,
         iconLayout: 'default#image',
         iconImageHref: './img/icons/decoration/marker.svg',
@@ -424,8 +409,8 @@ function init(){
     })
     myMap.geoObjects.add(myCollection);
     myMap.behaviors.disable('scrollZoom');
-    
-   
+
+
 }
 
 
