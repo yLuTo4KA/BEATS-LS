@@ -214,30 +214,8 @@ let sectionChange = function () {
     
 };
 /// Mobile scroll /// 
-$(function() {      
-    wrapper.swipe( {
-      swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-        wrapper.on('wheel', function (e) {
-            e.preventDefault();
-          });
-        if(direction == 'up'){
-            if(currentSection < (section.length -1)){
-                currentSection++;
-                
-            }
-        }else if(direction == 'down'){
-            if(currentSection >= 1){
-                currentSection--;
-            }
-        }
-        sectionChange();
-      }
-    });
-  });
-if(!md.phone() === null){  
-    console.log('not null')
-    
-}else{
+
+if(md.phone() == null){  
     wrapper.on('wheel', function (e) {
         e.preventDefault();
     
@@ -256,6 +234,27 @@ if(!md.phone() === null){
         sectionChange();
     
     });
+}else{
+    $(function() {      
+        wrapper.swipe( {
+          swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+            wrapper.on('wheel', function (e) {
+                e.preventDefault();
+              });
+            if(direction == 'up'){
+                if(currentSection < (section.length -1)){
+                    currentSection++;
+                    
+                }
+            }else if(direction == 'down'){
+                if(currentSection >= 1){
+                    currentSection--;
+                }
+            }
+            sectionChange();
+          }
+        });
+      });
 }
 
 
