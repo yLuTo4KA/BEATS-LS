@@ -110,6 +110,7 @@ ul {
 
 .section {
   height: 100vh;
+  min-height: 31.25rem;
   display: flex;
   align-items: center; }
   .section--hero {
@@ -733,6 +734,8 @@ ul {
   justify-content: center;
   height: 100%;
   position: relative; }
+  .slider .slide {
+    overflow: hidden; }
   .slider__control {
     display: flex;
     align-items: center;
@@ -937,52 +940,61 @@ ul {
       margin-right: 0;
       margin-bottom: 1.25rem; } }
 
-.color {
-  height: 100vh;
-  width: 100vw;
-  color: #fff;
-  background: url("../img/color-menu.png") center top/cover no-repeat;
-  position: relative; }
-  .color__title {
-    text-transform: uppercase;
-    font-size: 3rem;
-    font-weight: 700;
-    padding: 10% 0 0 8%; }
-  .color__list {
-    display: inline-flex;
-    margin: 0;
-    padding: 0;
+.products-menu-section {
+  background: url("../img/color-menu.png") center center/cover no-repeat;
+  position: relative;
+  color: #fff; }
+  .products-menu-section__title {
     position: absolute;
-    right: 0;
-    top: 0; }
-  .color__item {
-    height: 100%;
+    top: 15%;
+    left: 10%;
+    z-index: 1; }
+
+.products-menu {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .products-menu__item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    z-index: 500;
+    font-family: "Alegreya Sans", sans-serif; }
+  .products-menu__title {
+    position: relative;
     display: flex; }
-  .color__button-open {
+    .products-menu__title.--gray {
+      background: #999; }
+    .products-menu__title.--black {
+      background: #151515; }
+    .products-menu__title.--red {
+      background: #E01F3D; }
+  .products-menu__text {
+    font-size: 2.25rem;
+    font-weight: 700;
     writing-mode: vertical-lr;
-    transform: rotate(180deg);
-    height: 100%;
-    padding: 1.875rem;
-    font-family: "Alegreya Sans", sans-serif;
-    font-size: 36px;
-    font-weight: 700; }
-    .color__button-open--gray {
-      background-color: #999; }
-    .color__button-open--black {
-      background-color: #151515; }
-    .color__button-open--red {
-      background-color: #E01F3D; }
-  .color__content {
-    width: 0;
-    overflow: hidden;
+    rotate: 180deg;
+    padding: 1.875rem; }
+  .products-menu__content {
     background: #333537E5;
-    font-family: "Alegreya Sans", sans-serif;
-    line-height: 1.6;
-    transition: width .5s; }
-  .color__text {
-    width: 50rem;
+    width: 0;
+    position: relative;
     overflow: hidden;
-    padding: 30px 100px 30px 30px; }
+    -webkit-transition: width .7s;
+    -o-transition: width .7s;
+    transition: width .7s; }
+    .products-menu__content-text {
+      line-height: 1.6; }
+  .products-menu__container {
+    padding: 1.875rem 3.125rem 1.875rem 2.1875rem; }
+    @media screen and (max-width: 768px) {
+      .products-menu__container {
+        padding: 1.25rem 2.5rem 1.25rem 1.5625rem; } }
 
 @keyframes plays {
   from {

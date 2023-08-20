@@ -19,12 +19,16 @@
         transform: rotate(180deg)
     }
 }
+
 .slider{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
     position: relative;
+    .slide{
+    overflow: hidden;
+    }
     &__control{
         display: flex;
         align-items: center;

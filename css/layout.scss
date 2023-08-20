@@ -131,6 +131,7 @@ ul {
 
 .section {
     height: 100vh;
+    min-height: rem(500px);
     display: flex;
     align-items: center;
     &--hero{
