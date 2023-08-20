@@ -131,7 +131,6 @@ ul {
 
 .section {
     height: 100vh;
-    min-height: rem(500px);
     display: flex;
     align-items: center;
     &--hero{
@@ -195,10 +194,7 @@ ul {
     &--bg--gray {
         background: $gray;
     }
-    &--bg--form{
-        background: url('../img/order-bg.png') center center no-repeat, #181818;
-        color: #fff;
-    }
+   
     &--bg--black{
         background-color: #000;
     }

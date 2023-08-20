@@ -61,9 +61,5 @@
     }
     &__container{
         padding: rem(30px) rem(50px) rem(30px) rem(35px);
-
-        @include tablets{
-            padding: rem(20px) rem(40px) rem(20px) rem(25px);
-        }
     }
 }

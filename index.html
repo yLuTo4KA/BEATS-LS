@@ -16,7 +16,7 @@
 
 <body>
     <div class="wrapper">
-        <section class="section section--bg--gray section--hero active">
+        <section data-section-id="hero" class="section section--bg--gray section--hero active">
             <div class="container header__container">
                 <header class="header" id="header">
                     <a href="#" class="logo">
@@ -26,13 +26,18 @@
                     </a>
                     <nav class="menu">
                         <ul class="menu__list">
-                            <li class="menu__item"><a href="#" class="menu__link">О нас</a></li>
-                            <li class="menu__item"><a href="#" class="menu__link">Наушники</a></li>
-                            <li class="menu__item"><a href="#" class="menu__link">Команда</a></li>
-                            <li class="menu__item"><a href="#" class="menu__link">Цвета</a></li>
-                            <li class="menu__item"><a href="#" class="menu__link">Отзывы</a></li>
-                            <li class="menu__item"><a href="#" class="menu__link">Как мы работаем</a></li>
-                            <li class="menu__item"><a href="#" class="menu__link">Контакты</a></li>
+                            <li class="menu__item"><a href="#" data-scroll-to="feature" class="menu__link">О нас</a>
+                            </li>
+                            <li class="menu__item"><a href="#" data-scroll-to="slider" class="menu__link">Наушники</a>
+                            </li>
+                            <li class="menu__item"><a href="#" data-scroll-to="team" class="menu__link">Команда</a></li>
+                            <li class="menu__item"><a href="#" data-scroll-to="products" class="menu__link">Цвета</a>
+                            </li>
+                            <li class="menu__item"><a href="#" data-scroll-to="reviews" class="menu__link">Отзывы</a>
+                            </li>
+                            <li class="menu__item"><a href="#" data-scroll-to="player" class="menu__link">Как мы
+                                    работаем</a></li>
+                            <li class="menu__item"><a href="#" data-scroll-to="map" class="menu__link">Контакты</a></li>
                         </ul>
                     </nav>
                     <adress class="contacts">
@@ -53,7 +58,7 @@
                         <h2 class="welcome__desc">Встречайте новую версию наушников
                             из линейки Powerbeats.
                         </h2>
-                        <a href="#" class="welcome__btn btn">Заказать</a>
+                        <a href="#" data-scroll-to="order" class="welcome__btn btn">Заказать</a>
                     </div>
                     <div class="welcome__specification-section">
                         <ul class="welcome__specification-list">
@@ -86,7 +91,7 @@
                 </main>
             </div>
         </section>
-        <section class="section features__section">
+        <section data-section-id="feature" class="section features__section">
             <div class="container">
                 <div class="section__info section__info--features">
                     <h2 class="section__title">почему beats solo 3?</h2>
@@ -155,7 +160,7 @@
                 </ul>
             </div>
         </section>
-        <section class="section section--bg--gray slider__section">
+        <section data-section-id="slider" class="section section--bg--gray slider__section">
             <div class="container container--slider">
                 <div class="slider__control slider__control--left">
                     <a href="#" class="slider__btn slider__btn--left">
@@ -271,7 +276,7 @@
                                             14 990 ₽
                                         </h2>
                                         <div class="slider_buy-btns">
-                                            <a href="#" class="btn">Заказать</a>
+                                            <a href="#" data-scroll-to="order" class="btn">Заказать</a>
                                         </div>
                                     </div>
                                 </div>
@@ -386,7 +391,7 @@
                                             14 990 ₽
                                         </h2>
                                         <div class="slider_buy-btns">
-                                            <a href="#" class="btn">Заказать</a>
+                                            <a href="#" data-scroll-to="order" class="btn">Заказать</a>
                                         </div>
                                     </div>
                                 </div>
@@ -408,7 +413,7 @@
                 </div>
             </div>
         </section>
-        <section class="section">
+        <section data-section-id="team" class="section">
             <div class="container">
                 <div class="section__info">
                     <h2 class="section__title">
@@ -572,7 +577,7 @@
                 </ul>
             </div>
         </section>
-        <section class="section products-menu-section">
+        <section data-section-id="products" class="section products-menu-section">
             <h1 class="section__title products-menu-section__title">Цвета</h1>
             <ul class="products-menu">
                 <li class="products-menu__item">
@@ -582,8 +587,12 @@
                     <div class="products-menu__content">
                         <div class="products-menu__container">
                             <div class="products-menu__content-text">
-                                Наушники Beats Solo3 могут работать до 40 часов без подзарядки, чтобы вы могли пользоваться ими каждый день. 5‑минутной зарядки Fast Fuel хватит ещё на 3 часа воспроизведения. Фирменное звучание Beats в наушниках с технологией Bluetooth класса 1 будет сопровождать вас повсюду — куда бы вы ни отправились. 
-Расположение чашек с мягкими амбушюрами можно регулировать — вы сможете носить их целый день.
+                                Наушники Beats Solo3 могут работать до 40 часов без подзарядки, чтобы вы могли
+                                пользоваться ими каждый день. 5‑минутной зарядки Fast Fuel хватит ещё на 3 часа
+                                воспроизведения. Фирменное звучание Beats в наушниках с технологией Bluetooth класса 1
+                                будет сопровождать вас повсюду — куда бы вы ни отправились.
+                                Расположение чашек с мягкими амбушюрами можно регулировать — вы сможете носить их целый
+                                день.
                             </div>
                         </div>
                     </div>
@@ -595,8 +604,12 @@
                     <div class="products-menu__content">
                         <div class="products-menu__container">
                             <div class="products-menu__content-text">
-                                Наушники Beats Solo3 могут работать до 40 часов без подзарядки, чтобы вы могли пользоваться ими каждый день. 5‑минутной зарядки Fast Fuel хватит ещё на 3 часа воспроизведения. Фирменное звучание Beats в наушниках с технологией Bluetooth класса 1 будет сопровождать вас повсюду — куда бы вы ни отправились. 
-Расположение чашек с мягкими амбушюрами можно регулировать — вы сможете носить их целый день.
+                                Наушники Beats Solo3 могут работать до 40 часов без подзарядки, чтобы вы могли
+                                пользоваться ими каждый день. 5‑минутной зарядки Fast Fuel хватит ещё на 3 часа
+                                воспроизведения. Фирменное звучание Beats в наушниках с технологией Bluetooth класса 1
+                                будет сопровождать вас повсюду — куда бы вы ни отправились.
+                                Расположение чашек с мягкими амбушюрами можно регулировать — вы сможете носить их целый
+                                день.
                             </div>
                         </div>
                     </div>
@@ -608,15 +621,19 @@
                     <div class="products-menu__content">
                         <div class="products-menu__container">
                             <div class="products-menu__content-text">
-                                Наушники Beats Solo3 могут работать до 40 часов без подзарядки, чтобы вы могли пользоваться ими каждый день. 5‑минутной зарядки Fast Fuel хватит ещё на 3 часа воспроизведения. Фирменное звучание Beats в наушниках с технологией Bluetooth класса 1 будет сопровождать вас повсюду — куда бы вы ни отправились. 
-Расположение чашек с мягкими амбушюрами можно регулировать — вы сможете носить их целый день.
+                                Наушники Beats Solo3 могут работать до 40 часов без подзарядки, чтобы вы могли
+                                пользоваться ими каждый день. 5‑минутной зарядки Fast Fuel хватит ещё на 3 часа
+                                воспроизведения. Фирменное звучание Beats в наушниках с технологией Bluetooth класса 1
+                                будет сопровождать вас повсюду — куда бы вы ни отправились.
+                                Расположение чашек с мягкими амбушюрами можно регулировать — вы сможете носить их целый
+                                день.
                             </div>
                         </div>
                     </div>
                 </li>
             </ul>
         </section>
-        <section class="section">
+        <section data-section-id="reviews" class="section">
             <div class="container">
                 <div class="section__info section__info--review">
                     <h2 class="section__title">
@@ -681,7 +698,7 @@
                 </div>
             </div>
         </section>
-        <section class="section">
+        <section data-section-id="player" class="section">
             <div class="container">
                 <div class="section__info">
                     <h2 class="section__title">
@@ -736,7 +753,7 @@
                 </div>
             </div>
         </section>
-        <section class="section section--bg--form form__section">
+        <section data-section-id="order" class="section section--bg--form form__section">
             <div class="container form__container">
                 <div class="section__info section__info--order">
                     <h1 class="section__title">Закажите доставку</h1>
@@ -815,7 +832,7 @@
                 </form>
             </div>
         </section>
-        <section class="section map__section ">
+        <section data-section-id="map" class="section map__section ">
             <div class="map" id="map">
 
             </div>
@@ -891,13 +908,14 @@
             </svg>
         </a>
         <ul class="menu__open-list">
-            <li class="menu__open-item"><a href="#" class="menu__open-link">О нас</a></li>
-            <li class="menu__open-item"><a href="#" class="menu__open-link">Наушники</a></li>
-            <li class="menu__open-item"><a href="#" class="menu__open-link">Команда</a></li>
-            <li class="menu__open-item"><a href="#" class="menu__open-link">Цвета</a></li>
-            <li class="menu__open-item"><a href="#" class="menu__open-link">Отзывы</a></li>
-            <li class="menu__open-item"><a href="#" class="menu__open-link">Как мы работаем</a></li>
-            <li class="menu__open-item"><a href="#" class="menu__open-link">Контакты</a></li>
+            <li class="menu__open-item"><a href="#" data-scroll-to="feature" class="menu__open-link">О нас</a></li>
+            <li class="menu__open-item"><a href="#" data-scroll-to="slider" class="menu__open-link">Наушники</a></li>
+            <li class="menu__open-item"><a href="#" data-scroll-to="team" class="menu__open-link">Команда</a></li>
+            <li class="menu__open-item"><a href="#" data-scroll-to="products" class="menu__open-link">Цвета</a></li>
+            <li class="menu__open-item"><a href="#" data-scroll-to="reviews" class="menu__open-link">Отзывы</a></li>
+            <li class="menu__open-item"><a href="#" data-scroll-to="player" class="menu__open-link">Как мы работаем</a>
+            </li>
+            <li class="menu__open-item"><a href="#" data-scroll-to="map" class="menu__open-link">Контакты</a></li>
         </ul>
     </div>
     <div class="modal" id="modal">

@@ -110,7 +110,6 @@ ul {
 
 .section {
   height: 100vh;
-  min-height: 31.25rem;
   display: flex;
   align-items: center; }
   .section--hero {
@@ -160,9 +159,6 @@ ul {
         padding: 0 3%; } }
   .section--bg--gray {
     background: #F5F5F5; }
-  .section--bg--form {
-    background: url("../img/order-bg.png") center center no-repeat, #181818;
-    color: #fff; }
   .section--bg--black {
     background-color: #000; }
   .section--margin--none {
@@ -557,7 +553,9 @@ ul {
       transform: translate(-50%, -50%); }
 
 .form__section {
-  position: relative; }
+  position: relative;
+  background: url("../img/order-bg.png") center center/cover no-repeat;
+  color: #fff; }
   .form__section::before {
     content: url("../img/icons/decoration/pentagon.svg");
     position: absolute;
@@ -992,9 +990,6 @@ ul {
       line-height: 1.6; }
   .products-menu__container {
     padding: 1.875rem 3.125rem 1.875rem 2.1875rem; }
-    @media screen and (max-width: 768px) {
-      .products-menu__container {
-        padding: 1.25rem 2.5rem 1.25rem 1.5625rem; } }
 
 @keyframes plays {
   from {

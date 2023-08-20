@@ -32,12 +32,8 @@ const openItem = item => {
     const textBlock = contentBlock.find('.team__info');
     const reqHeight = textBlock.height();
 
-    // color
-
-
-
-    container.addClass('active')
-    nameBlock.addClass('team__name--active')
+    container.addClass('active');
+    nameBlock.addClass('team__name--active');
     contentBlock.height(reqHeight);
 }
 
@@ -51,22 +47,37 @@ const closeEveryItem = container => {
     items.height(0);
 }
 
-
 $('.team__name').on('click', function (e) {
     e.preventDefault();
 
     const $this = $(e.currentTarget);
-    const container = $this.closest('.teams__list')
+    const container = $this.closest('.teams__list');
     const elemContainer = container.find('.teams__item');
+    const contentBlock = $this.siblings('.team__content'); // Находим соседний элемент .team__content
 
-
-    if (elemContainer.hasClass('active')) {
-        closeEveryItem(container)
+    if (contentBlock.height() === 0) {
+        closeEveryItem(container);
+        openItem($this);
     } else {
-        closeEveryItem(container)
-        openItem($this)
+        closeEveryItem(container);
     }
 });
+
+// $('.team__name').on('click', function (e) {
+//     e.preventDefault();
+
+//     const $this = $(e.currentTarget);
+//     const container = $this.closest('.teams__list')
+//     const elemContainer = container.find('.teams__item');
+
+
+//     if (elemContainer.hasClass('active')) {
+//         closeEveryItem(container)
+//     } else {
+//         closeEveryItem(container)
+//         openItem($this)
+//     }
+// }); 
 
 //// slider 
 $('.slider__hide-info-btn').on('click', function (e) {
@@ -171,7 +182,7 @@ $('.app-submit-btn').on('click', function (e) {
 
 
 ///// products accardeon
-function mesureWidth(item){
+function mesureWidth(item) {
     let reqItemWidth = 0;
     const screenWidth = $(window).width();
     const container = item.closest('.products-menu');
@@ -181,27 +192,27 @@ function mesureWidth(item){
     const textContainer = item.find('.products-menu__container');
     const paddingL = parseInt(textContainer.css('padding-left'));
     const paddingR = parseInt(textContainer.css('padding-right'));
-    
+
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
-    if(isMobile){
+    if (isMobile) {
         reqItemWidth = screenWidth - titlesWidth;
-    }else{
+    } else {
         reqItemWidth = screenWidth / 2.2;
     }
-    return{
-            container: reqItemWidth,
-            textContainer: reqItemWidth - paddingL - paddingR
+    return {
+        container: reqItemWidth,
+        textContainer: reqItemWidth - paddingL - paddingR
     }
 }
-function closeEveryItemInContainer(container){
+function closeEveryItemInContainer(container) {
     const items = container.find('.products-menu__item');
     const content = container.find('.products-menu__content');
-    
+
     items.removeClass('active')
     content.width(0);
 }
-function openProducts(item){
+function openProducts(item) {
     const hiddenContent = item.find('.products-menu__content');
     const reqWidth = mesureWidth(item);
     const textBlock = item.find('.products-menu__container');
@@ -210,25 +221,25 @@ function openProducts(item){
     textBlock.width(reqWidth.textContainer);
 
 }
-$('.products-menu__title').on('click', function(e){
+$('.products-menu__title').on('click', function (e) {
     e.preventDefault();
 
     const $this = $(e.currentTarget);
     const item = $this.closest('.products-menu__item');
     const itemOpened = item.hasClass('active');
     const container = $this.closest('.products-menu');
-    if(itemOpened){
+    if (itemOpened) {
         closeEveryItemInContainer(container)
-    }else{
+    } else {
         closeEveryItemInContainer(container)
         openProducts(item);
     }
-    
+
 })
-$('.products-menu__content').on('click', function(e){
+$('.products-menu__content').on('click', function (e) {
     e.preventDefault();
     const targets = e.target.classList
-    if(!targets.contains('products-menu__content-text')){
+    if (!targets.contains('products-menu__content-text')) {
         closeEveryItemInContainer($('.products-menu'));
     }
 })
@@ -236,6 +247,7 @@ $('.products-menu__content').on('click', function(e){
 
 /// onePageScroll 
 var currentSection = 0;
+let inScroll = false;
 let sectionChange = function () {
     let thisSection = section[currentSection]
 
@@ -250,26 +262,31 @@ let sectionChange = function () {
 
     var translateY = -currentSection * 100;
     wrapper[0].style.transform = `translateY(${0, translateY}vh)`;
-
+    setTimeout(() => {
+        inScroll = false;
+    }, 1300)
 };
 /// Mobile scroll /// 
 
 wrapper.on('wheel', function (e) {
     e.preventDefault();
+    if (inScroll === false) {
+        inScroll = true;
+        var delta = event.deltaY;
+        if (delta > 0) {
+            if (currentSection < (section.length - 1)) {
+                currentSection++;
+            }
+        } else if (delta < 0) {
+            if (currentSection >= 1) {
+                currentSection--;
+            }
 
-    var delta = event.deltaY;
-    if (delta > 0) {
-        if (currentSection < (section.length - 1)) {
-            currentSection++;
         }
-    } else if (delta < 0) {
-        if (currentSection >= 1) {
-            currentSection--;
-        }
+
+        sectionChange();
 
     }
-
-    sectionChange();
 
 });
 if (md.phone() != null) {
@@ -294,8 +311,27 @@ if (md.phone() != null) {
         });
     });
 }
-
-
+$(window).on('keydown', function (e) {
+    const tagName = e.target.tagName.toLowerCase();
+    if (tagName != 'input' && tagName != 'textarea') {
+        switch (e.keyCode) {
+            case 38: // prev
+                e.preventDefault()
+                if (currentSection >= 1) {
+                    currentSection--;
+                    sectionChange();
+                }
+                break;
+            case 40: // next 
+            e.preventDefault()
+                if (currentSection < (section.length - 1)) {
+                    currentSection++;
+                    sectionChange();
+                }
+                break;
+        }
+    }
+})
 $('.fixed-menu__link').on('click', function (e) {
     const $this = $(e.currentTarget);
     const target = $this.attr('data-section');
@@ -303,6 +339,16 @@ $('.fixed-menu__link').on('click', function (e) {
     sectionChange();
 })
 
+$('[data-scroll-to]').on('click', function (e) { 
+    e.preventDefault();
+
+    const $this = $(e.currentTarget);
+    const target = $this.attr('data-scroll-to');
+    const reqSection = $(`[data-section-id=${target}]`)
+    currentSection = reqSection.index();
+    menuOpen.style.display = 'none';
+    sectionChange();
+ })
 
 
 
@@ -316,18 +362,18 @@ volumeButton.css({
     left: `${player.volume * 100}%`
 })
 
-function volumeChangeIndicator(muted) { 
-    
-    if(!muted){
+function volumeChangeIndicator(muted) {
+
+    if (!muted) {
         $('.player__volume-indicator').css({
             width: `${player.volume * 100}%`
         })
-    }else{
+    } else {
         $('.player__volume-indicator').css({
             width: `${0}%`
         })
     }
- }
+}
 
 function playVideo() {
     if (player.paused) {
@@ -357,7 +403,7 @@ $('.player__playback').on('click', function (e) {
     const clickedPos = e.originalEvent.layerX;
     const newBtnPos = (clickedPos / bar.width()) * 100;
     const newPlaybackPos = (player.duration / 100) * newBtnPos;
-    
+
     player.currentTime = newPlaybackPos;
 })
 
@@ -385,32 +431,32 @@ function onPlayerReady() {
     })
 
 }
-$('.player__volume-button--off').on('click', function (e) { 
+$('.player__volume-button--off').on('click', function (e) {
     e.preventDefault();
 
     const muteBtn = $(e.currentTarget);
     muteBtn.toggleClass('active')
-    if(muteBtn.hasClass('active')){
+    if (muteBtn.hasClass('active')) {
         player.muted = true;
         volumeButton.css({
             left: `0%`
         })
-    }else{
+    } else {
         player.muted = false;
         volumeButton.css({
             left: `${player.volume * 100}%`
         })
-        
+
     }
- });
- 
- $('.player__volume').on('click', function (e) {
+});
+
+$('.player__volume').on('click', function (e) {
     e.preventDefault();
 
     const volBar = $(e.currentTarget);
     const clickedVolBarPos = e.originalEvent.layerX;
     const clickedVolBarPosMs = clickedVolBarPos / 100
-    
+
 
     volumeButton.css({
         left: `${clickedVolBarPos}%`
