@@ -13,6 +13,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const gulpif = require('gulp-if');
+const ghPages = require('gulp-gh-pages');
 
 const {DIST_PATH, SRC_PATH, STYLES_LIBS, JS_LIBS} = require('./gulp.config');
 
@@ -96,6 +97,11 @@ task('watch', () => {
     watch(`./${SRC_PATH}/*.html`, series('copy:html'));
     watch(`./${SRC_PATH}/js/*.js`, series('scripts'));
 })
-
+task('deploy', ()=>{
+    return src(`${DIST_PATH}/**/*`)
+        .pipe(ghPages({
+            branch: 'prod'
+        }))
+})
 task('default', series('clean', parallel('copy:html', 'styles', 'scripts', 'icons'), parallel('watch', 'server')));
-task('build', series('clean', parallel('copy:html', 'styles', 'scripts', 'icons')));
+task('build', series('clean', parallel('copy:html', 'styles', 'scripts', 'icons'), 'deploy' ));

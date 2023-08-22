@@ -1,4 +1,17 @@
+.reviews__section{
+    position: relative;
+    &::before{
+        content: '';
+        width: 35px;
+        height: 35px;
+        background: #868686;
+        border-radius: 100%;
+        position: absolute;
+        bottom: -17.5px;
+        left: 5%;
 
+    }
+}
 .reviews {
     display: flex;
     flex-direction: column;

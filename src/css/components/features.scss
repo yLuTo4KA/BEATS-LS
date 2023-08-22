@@ -2,7 +2,7 @@
 .features__section{
     position: relative;
     &::before{
-        content: url('../img/icons/decoration/tringle.svg');
+        content: url('./img/icons/decoration/tringle.svg');
         position: absolute;
         bottom: -25px;
         left: 5%;
@@ -20,7 +20,7 @@
         padding: 0 3%;
         position: relative;
         &::after{
-            content: url('../img/icons/decoration/separator.svg');
+            content: url('./img/icons/decoration/separator.svg');
             position: absolute;
             top: 55px;
             right: 0;

@@ -1,7 +1,7 @@
 .slider__section{
     position: relative;
     &::before{
-        content: url('../img/icons/decoration/rect.svg');
+        content: url('./img/icons/decoration/rect.svg');
         position: absolute;
         bottom: -25px;
         right: 5%;

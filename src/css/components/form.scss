@@ -1,10 +1,10 @@
 @import "radio.scss";
 .form__section{
     position: relative;
-    background: url('../img/order-bg.png') center center / cover no-repeat;
+    background: url('./img/order-bg.png') center center / cover no-repeat;
     color: #fff;
     &::before{
-        content: url('../img/icons/decoration/pentagon.svg');
+        content: url('./img/icons/decoration/pentagon.svg');
         position: absolute;
         top: -25px;
         right: 5%;
