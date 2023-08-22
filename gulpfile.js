@@ -14,6 +14,7 @@ const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const gulpif = require('gulp-if');
 const ghPages = require('gulp-gh-pages');
+const googleWebFonts = require('gulp-google-webfonts');
 
 const {DIST_PATH, SRC_PATH, STYLES_LIBS, JS_LIBS} = require('./gulp.config');
 
