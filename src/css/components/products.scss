@@ -39,9 +39,9 @@
             height: 100%;
             z-index: 1;
             &.--one{
-                right: 222px;
+                right: 220px;
             }&.--two{
-                right: 111px;
+                right: 110px;
             }&.--three{
                 right: 0;
             }
@@ -58,7 +58,7 @@
                     position: absolute;
                     top: 0;
                     bottom: 0;
-                    left: 111px;
+                    left: 108px;
                     transition: width .5s;
                     &.--one{
                         width: 178% !important;
@@ -110,10 +110,10 @@
     
     }
     &__container{
-        padding: 30px 50px 30px 35px;
+        padding: 30px 130px 35px 35px;
         @include phones{
             font-size: 19px;
-            width: 400px !important;
+            width: 100vw !important;
         }
     }
 }
