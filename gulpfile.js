@@ -17,6 +17,7 @@ const gulpif = require('gulp-if');
 const {DIST_PATH, SRC_PATH, STYLES_LIBS, JS_LIBS} = require('./gulp.config');
 
 const env = process.env.NODE_ENV;
+console.log(env)
 task('clean', () => {
     return src(`${DIST_PATH}/**/*`, { read: false }).pipe(rm());
 })
@@ -30,7 +31,7 @@ task('styles', () => {
     return src([
         ...STYLES_LIBS, `${SRC_PATH}/css/main.scss`
     ])
-        .pipe(gulpif(env === 'dev', sourcemaps.init()))
+        .pipe(gulpif(env == 'dev', sourcemaps.init()))
         .pipe(concat('main.scss'))
         .pipe(sassGlob())
         .pipe(sass().on('error', sass.logError))
@@ -39,14 +40,14 @@ task('styles', () => {
             rem: 16,            // root element (html) font-size (default: 16)
             one: false          // whether convert 1px to rem (default: false)
         }))
-        .pipe(gulpif(env === 'dev', autoprefixer({
+        .pipe(gulpif(env == 'dev', autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
         }))
         )
-        .pipe(gulpif(env === 'prod', gcmq()))
-        .pipe(gulpif(env === 'prod', cleanCSS()))
-        .pipe(gulpif(env === 'dev', sourcemaps.write()))
+        .pipe(gulpif(env == 'prod', gcmq()))
+        .pipe(gulpif(env == 'prod', cleanCSS()))
+        .pipe(gulpif(env == 'dev', sourcemaps.write()))
         .pipe(dest(DIST_PATH))
         .pipe(reload({ stream: true }));
 });
@@ -61,13 +62,13 @@ task('scripts', () => {
     return src([
         ...JS_LIBS, `${SRC_PATH}/js/*.js`
     ])
-        .pipe(gulpif(env === 'dev', sourcemaps.init()))
+        .pipe(gulpif(env == 'dev', sourcemaps.init()))
         .pipe(concat('main.min.js', { newLine: ';' }))
-        .pipe(gulpif(env === 'prod', babel({
+        .pipe(gulpif(env == 'prod', babel({
             presets: ['@babel/env']
         })))
-        .pipe(gulpif(env === 'prod', uglify()))
-        .pipe(gulpif(env === 'dev', sourcemaps.write()))
+        .pipe(gulpif(env == 'prod', uglify()))
+        .pipe(gulpif(env == 'dev', sourcemaps.write()))
         .pipe(dest(DIST_PATH))
         .pipe(reload({ stream: true }));
 });
