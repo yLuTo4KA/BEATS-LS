@@ -1,0 +1,50 @@
+@import "feature.scss";
+.features__section{
+    position: relative;
+    &::before{
+        content: url('../img/icons/decoration/tringle.svg');
+        position: absolute;
+        bottom: -25px;
+        left: 5%;
+        z-index: 9999;
+    }
+}
+
+.features {
+    display: flex;
+    @include phones{
+        flex-direction: column;
+    }
+    &__item{
+        flex: 1;
+        padding: 0 3%;
+        position: relative;
+        &::after{
+            content: url('../img/icons/decoration/separator.svg');
+            position: absolute;
+            top: 55px;
+            right: 0;
+            transform: translateX(50%);
+            @include tablets{
+                display: none;
+            }
+           
+        }
+        @include phones{
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        
+        &:first-child{
+            padding-left: 0;
+        }
+        &:last-child{
+            padding-right: 0;
+
+            &::after{
+                display: none;
+            }
+        }
+    }
+
+}

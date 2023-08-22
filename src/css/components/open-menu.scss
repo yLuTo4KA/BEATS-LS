@@ -1,0 +1,45 @@
+.menu__open{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #333537;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #fff;
+    text-align: center;
+    display: none;
+    @include desktop{
+        display: none !important;  
+    }
+    
+    &-item{
+        margin-bottom: 20px;
+        &:hover{
+            color: $red;
+            text-decoration: underline;
+        }
+        
+    }
+}
+.menu__close{
+    position: absolute;
+    top: 42px;
+    right: 42px;
+   
+}
+.close{
+    width: 20px;
+    height: 20px;
+    fill: white;
+    opacity: 70%;
+    &:hover{
+        fill: $red;
+    }
+}

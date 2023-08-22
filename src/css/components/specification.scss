@@ -1,0 +1,14 @@
+.specification {
+    display: flex;
+    
+    &__icon{
+        width: 41px;
+        height: 41px;
+        margin-right: 10px;
+    }
+    &-text{
+        width: 114px;
+    }
+
+    
+}
