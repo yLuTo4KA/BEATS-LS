@@ -103,5 +103,4 @@ $('[data-scroll-to]').on('click', function (e) {
     sectionChange();
  })
 
-
 })()
